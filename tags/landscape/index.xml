@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Landscape on A minimal Hugo website</title>
-    <link>//localhost:1313/tags/landscape/</link>
+    <link>/tags/landscape/</link>
     <description>Recent content in Landscape on A minimal Hugo website</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 12 May 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="//localhost:1313/tags/landscape/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/landscape/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>江南好</title>
-      <link>//localhost:1313/note/2024/05/12/another-noe/</link>
+      <link>/note/2024/05/12/another-noe/</link>
       <pubDate>Sun, 12 May 2024 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/note/2024/05/12/another-noe/</guid>
-      <description>I just discovered an awesome tutorial on blogdown written by Alison. I have to admit this is the best blogdown tutorial I have seen so far.</description>
+      <guid>/note/2024/05/12/another-noe/</guid>
+      <description>绍兴七星桥 </description>
     </item>
   </channel>
 </rss>
