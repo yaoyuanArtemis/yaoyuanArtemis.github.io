@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on A minimal Hugo website</title>
+    <link>/posts/</link>
+    <description>Recent content in Posts on A minimal Hugo website</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 13 May 2024 17:10:36 +0800</lastBuildDate>
+    <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WordPronuciation</title>
+      <link>/posts/wordpronuciation/</link>
+      <pubDate>Mon, 13 May 2024 17:10:36 +0800</pubDate>
+      <guid>/posts/wordpronuciation/</guid>
+      <description>he的弱读 there he is = [there rui iz] who is he [hu aizi] did he = [di di] but if he = [bu di fi] but he = [bu di] what he = [wha di] food is he = [foo di zi] does he = [de zi] believe he = [believ di] is he = [i zi] what&#39;s he = [whʌ tsi] what&#39;d he = [whʌ di] guess he = [ge si] because he = [bi cuzi] who&#39;s he = [hu zi] him的弱读 told him = [tol dɜm] aboudt hime = [abou dɜm] leave him alone = [li vɜ ma long] got him = [gʌ dɜm] give him up = [gi vɜ map] let him in = [lɜ dɜ min] want him = [wan nɜm] met him = [me dɜm] killed him = [kill dɜm] put him = [pu dɜm]</description>
+    </item>
+  </channel>
+</rss>
