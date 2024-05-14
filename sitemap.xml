@@ -2,10 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/categories/</loc>
-    <lastmod>2024-05-14T11:36:13+08:00</lastmod>
-  </url><url>
     <loc>/</loc>
+    <lastmod>2024-05-14T23:27:17+08:00</lastmod>
+  </url><url>
+    <loc>/leecode/leecode/</loc>
+    <lastmod>2024-05-14T23:27:17+08:00</lastmod>
+  </url><url>
+    <loc>/leecode/</loc>
+    <lastmod>2024-05-14T23:27:17+08:00</lastmod>
+  </url><url>
+    <loc>/categories/</loc>
     <lastmod>2024-05-14T11:36:13+08:00</lastmod>
   </url><url>
     <loc>/tags/nodejs/</loc>
