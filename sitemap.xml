@@ -2,72 +2,93 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>//localhost:1313/categories/</loc>
+    <loc>/categories/</loc>
+    <lastmod>2024-05-14T11:36:13+08:00</lastmod>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2024-05-14T11:36:13+08:00</lastmod>
+  </url><url>
+    <loc>/tags/nodejs/</loc>
+    <lastmod>2024-05-14T11:36:13+08:00</lastmod>
+  </url><url>
+    <loc>/categories/nodejs/</loc>
+    <lastmod>2024-05-14T11:36:13+08:00</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2024-05-14T11:36:13+08:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2024-05-14T11:36:13+08:00</lastmod>
+  </url><url>
+    <loc>/posts/whatisnodejs/</loc>
+    <lastmod>2024-05-14T11:36:13+08:00</lastmod>
+  </url><url>
+    <loc>/tags/%E5%85%A8%E6%A0%88/</loc>
+    <lastmod>2024-05-14T11:36:13+08:00</lastmod>
+  </url><url>
+    <loc>/tags/%E6%80%BB%E7%BB%93/</loc>
+    <lastmod>2024-05-14T11:36:13+08:00</lastmod>
+  </url><url>
+    <loc>/posts/createpostprocess/</loc>
     <lastmod>2024-05-14T10:54:52+08:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/posts/createpostprocess/</loc>
+    <loc>/categories/hugo/</loc>
     <lastmod>2024-05-14T10:54:52+08:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/</loc>
+    <loc>/tags/%E6%8A%80%E5%B7%A7/</loc>
     <lastmod>2024-05-14T10:54:52+08:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/categories/hugo/</loc>
-    <lastmod>2024-05-14T10:54:52+08:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/posts/</loc>
-    <lastmod>2024-05-14T10:54:52+08:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/tags/</loc>
-    <lastmod>2024-05-14T10:54:52+08:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/tags/%E6%8A%80%E5%B7%A7/</loc>
-    <lastmod>2024-05-14T10:54:52+08:00</lastmod>
-  </url><url>
-    <loc>//localhost:1313/posts/wordpronuciation/</loc>
+    <loc>/tags/ielts/</loc>
     <lastmod>2024-05-13T17:10:36+08:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/landscape/</loc>
+    <loc>/categories/ielts/</loc>
+    <lastmod>2024-05-13T17:10:36+08:00</lastmod>
+  </url><url>
+    <loc>/posts/wordpronuciation/</loc>
+    <lastmod>2024-05-13T17:10:36+08:00</lastmod>
+  </url><url>
+    <loc>/tags/landscape/</loc>
     <lastmod>2024-05-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/note/</loc>
+    <loc>/note/</loc>
     <lastmod>2024-05-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/categories/%E7%BB%8D%E5%85%B4/</loc>
+    <loc>/categories/%E7%BB%8D%E5%85%B4/</loc>
     <lastmod>2024-05-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/note/2024/05/12/another-noe/</loc>
+    <loc>/note/2024/05/12/another-noe/</loc>
     <lastmod>2024-05-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/note/2017/06/13/a-quick-note/</loc>
+    <loc>/note/2017/06/13/a-quick-note/</loc>
     <lastmod>2017-06-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/categories/example/</loc>
+    <loc>/categories/example/</loc>
     <lastmod>2017-06-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/post/2016/02/14/a-plain-markdown-post/</loc>
+    <loc>/post/2016/02/14/a-plain-markdown-post/</loc>
     <lastmod>2016-02-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/blogdown/</loc>
+    <loc>/tags/blogdown/</loc>
     <lastmod>2016-02-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/markdown/</loc>
+    <loc>/tags/markdown/</loc>
     <lastmod>2016-02-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/mathjax/</loc>
+    <loc>/tags/mathjax/</loc>
     <lastmod>2016-02-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/pandoc/</loc>
+    <loc>/tags/pandoc/</loc>
     <lastmod>2016-02-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/post/</loc>
+    <loc>/post/</loc>
     <lastmod>2016-02-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/rstudio/</loc>
+    <loc>/tags/rstudio/</loc>
     <lastmod>2016-02-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/post/2015/07/23/lorem-ipsum/</loc>
+    <loc>/post/2015/07/23/lorem-ipsum/</loc>
     <lastmod>2015-07-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/about/</loc>
+    <loc>/about/</loc>
   </url>
 </urlset>

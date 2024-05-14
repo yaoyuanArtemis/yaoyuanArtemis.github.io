@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>技巧 on A minimal Hugo website</title>
-    <link>//localhost:1313/tags/%E6%8A%80%E5%B7%A7/</link>
+    <link>/tags/%E6%8A%80%E5%B7%A7/</link>
     <description>Recent content in 技巧 on A minimal Hugo website</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 14 May 2024 10:54:52 +0800</lastBuildDate>
-    <atom:link href="//localhost:1313/tags/%E6%8A%80%E5%B7%A7/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/%E6%8A%80%E5%B7%A7/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CreatePostProcess</title>
-      <link>//localhost:1313/posts/createpostprocess/</link>
+      <link>/posts/createpostprocess/</link>
       <pubDate>Tue, 14 May 2024 10:54:52 +0800</pubDate>
-      <guid>//localhost:1313/posts/createpostprocess/</guid>
-      <description>使用命令或者窗口新建文章 hugo new posts/createPostProcess.md 新建的文章默认根目录content目录 2. 使用编辑器打开创建的文章并编辑 这里使用的编辑器是VSCODE 3.</description>
+      <guid>/posts/createpostprocess/</guid>
+      <description> 使用命令或者窗口新建文章 hugo new posts/createPostProcess.md 新建的文章默认根目录content目录,因此新建文章相对路径会是conent/posts/createPostProcess.md&#xA;使用编辑器打开创建的文章并编辑 这里使用的编辑器是VSCODE&#xA;重启服务器（可选）&#xA;hugo server hugo服务器具有热加载功能，一些静态文件才需要重启路由器&#xA;将Markdown生成Html文件 需要将Markdown生成为html文件才能展示在网页上 hugo hugo命令就是做这一步。生成的html文件存放与public文件夹&#xA;进入public文件夹，提交至远程仓库即可 git add . git commit -m &amp;quot;xxx&amp;quot; git push origin main </description>
     </item>
   </channel>
 </rss>

@@ -2,31 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on A minimal Hugo website</title>
-    <link>//localhost:1313/categories/</link>
+    <link>/categories/</link>
     <description>Recent content in Categories on A minimal Hugo website</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 May 2024 10:54:52 +0800</lastBuildDate>
-    <atom:link href="//localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 May 2024 11:36:13 +0800</lastBuildDate>
+    <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NodeJs</title>
+      <link>/categories/nodejs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/categories/nodejs/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Hugo</title>
-      <link>//localhost:1313/categories/hugo/</link>
+      <link>/categories/hugo/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/categories/hugo/</guid>
+      <guid>/categories/hugo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>IELTS</title>
+      <link>/categories/ielts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/categories/ielts/</guid>
       <description></description>
     </item>
     <item>
       <title>绍兴</title>
-      <link>//localhost:1313/categories/%E7%BB%8D%E5%85%B4/</link>
+      <link>/categories/%E7%BB%8D%E5%85%B4/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/categories/%E7%BB%8D%E5%85%B4/</guid>
+      <guid>/categories/%E7%BB%8D%E5%85%B4/</guid>
       <description></description>
     </item>
     <item>
       <title>Example</title>
-      <link>//localhost:1313/categories/example/</link>
+      <link>/categories/example/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/categories/example/</guid>
+      <guid>/categories/example/</guid>
       <description></description>
     </item>
   </channel>
