@@ -2,52 +2,59 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on A minimal Hugo website</title>
-    <link>/tags/</link>
+    <link>//localhost:1313/tags/</link>
     <description>Recent content in Tags on A minimal Hugo website</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 12 May 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 May 2024 10:54:52 +0800</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>技巧</title>
+      <link>//localhost:1313/tags/%E6%8A%80%E5%B7%A7/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/tags/%E6%8A%80%E5%B7%A7/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Landscape</title>
-      <link>/tags/landscape/</link>
+      <link>//localhost:1313/tags/landscape/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/tags/landscape/</guid>
+      <guid>//localhost:1313/tags/landscape/</guid>
       <description></description>
     </item>
     <item>
       <title>Blogdown</title>
-      <link>/tags/blogdown/</link>
+      <link>//localhost:1313/tags/blogdown/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/tags/blogdown/</guid>
+      <guid>//localhost:1313/tags/blogdown/</guid>
       <description></description>
     </item>
     <item>
       <title>Markdown</title>
-      <link>/tags/markdown/</link>
+      <link>//localhost:1313/tags/markdown/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/tags/markdown/</guid>
+      <guid>//localhost:1313/tags/markdown/</guid>
       <description></description>
     </item>
     <item>
       <title>MathJax</title>
-      <link>/tags/mathjax/</link>
+      <link>//localhost:1313/tags/mathjax/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/tags/mathjax/</guid>
+      <guid>//localhost:1313/tags/mathjax/</guid>
       <description></description>
     </item>
     <item>
       <title>Pandoc</title>
-      <link>/tags/pandoc/</link>
+      <link>//localhost:1313/tags/pandoc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/tags/pandoc/</guid>
+      <guid>//localhost:1313/tags/pandoc/</guid>
       <description></description>
     </item>
     <item>
       <title>RStudio</title>
-      <link>/tags/rstudio/</link>
+      <link>//localhost:1313/tags/rstudio/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/tags/rstudio/</guid>
+      <guid>//localhost:1313/tags/rstudio/</guid>
       <description></description>
     </item>
   </channel>

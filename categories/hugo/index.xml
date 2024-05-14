@@ -2,17 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hugo on A minimal Hugo website</title>
-    <link>/categories/hugo/</link>
+    <link>//localhost:1313/categories/hugo/</link>
     <description>Recent content in Hugo on A minimal Hugo website</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 14 Feb 2016 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 May 2024 10:54:52 +0800</lastBuildDate>
+    <atom:link href="//localhost:1313/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CreatePostProcess</title>
+      <link>//localhost:1313/posts/createpostprocess/</link>
+      <pubDate>Tue, 14 May 2024 10:54:52 +0800</pubDate>
+      <guid>//localhost:1313/posts/createpostprocess/</guid>
+      <description> 使用命令或者窗口新建文章 hugo new posts/createPostProcess.md 新建的文章默认根目录content目录,因此新建文章相对路径会是conent/posts/createPostProcess.md&#xA;使用编辑器打开创建的文章并编辑 这里使用的编辑器是VSCODE&#xA;重启服务器（可选）&#xA;hugo server hugo服务器具有热加载功能，一些静态文件才需要重启路由器&#xA;将Markdown生成Html文件 需要将Markdown生成为html文件才能展示在网页上 hugo hugo命令就是做这一步。生成的html文件存放与public文件夹&#xA;进入public文件夹，提交至远程仓库即可 git add . git commit -m &amp;quot;xxx&amp;quot; git push origin main </description>
+    </item>
     <item>
       <title>A Plain Markdown Post</title>
-      <link>/post/2016/02/14/a-plain-markdown-post/</link>
+      <link>//localhost:1313/post/2016/02/14/a-plain-markdown-post/</link>
       <pubDate>Sun, 14 Feb 2016 00:00:00 +0000</pubDate>
-      <guid>/post/2016/02/14/a-plain-markdown-post/</guid>
+      <guid>//localhost:1313/post/2016/02/14/a-plain-markdown-post/</guid>
       <description>This sample post is mainly for blogdown users. If you do not use blogdown, you can skip the first section.&#xA;1. Markdown or R Markdown This is a post written in plain Markdown (*.md) instead of R Markdown (*.Rmd). The major differences are:&#xA;You cannot run any R code in a plain Markdown document, whereas in an R Markdown document, you can embed R code chunks (```{r}); A plain Markdown post is rendered through Goldmark by default, and an R Markdown document is compiled by rmarkdown and Pandoc.</description>
     </item>
   </channel>

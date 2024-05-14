@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>技巧 on A minimal Hugo website</title>
+    <link>//localhost:1313/tags/%E6%8A%80%E5%B7%A7/</link>
+    <description>Recent content in 技巧 on A minimal Hugo website</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 14 May 2024 10:54:52 +0800</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/%E6%8A%80%E5%B7%A7/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CreatePostProcess</title>
+      <link>//localhost:1313/posts/createpostprocess/</link>
+      <pubDate>Tue, 14 May 2024 10:54:52 +0800</pubDate>
+      <guid>//localhost:1313/posts/createpostprocess/</guid>
+      <description>使用命令或者窗口新建文章 hugo new posts/createPostProcess.md 新建的文章默认根目录content目录 2. 使用编辑器打开创建的文章并编辑 这里使用的编辑器是VSCODE 3.</description>
+    </item>
+  </channel>
+</rss>
