@@ -65,11 +65,11 @@
       <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&#xA;Quisque mattis volutpat lorem vitae feugiat.</description>
     </item>
     <item>
-      <title>About Me</title>
+      <title>Extra Details</title>
       <link>/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/about/</guid>
-      <description>I am a Web Engineer at Transportaion Division,Alibaba(Fliggy&amp;rsquo;s parent company,Stock Code:BABA) and I got the nick name of alibaba-YaoYuan(遥渊).&#xA;Previously,I worked as a Full Stack Engineer at the DevOps&amp;amp;Automation 1 Department,Instructure and Development Center,China Merchants Bank(the biggest Joint-Stock Commercial in China),in Shenzhen China🇨🇳 from 2021 to 2023.&#xA;My ongoing devepment project involve web deveopment,with a specific focus on pure front-end and full stack using NodeJS.&#xA;I am commited to some technical stack at present,such as : React、NodeJS、Babel、Rust、Java、Python,Besides,I prefer to learn some relevant knowledge about AI,which has been making waves not long ago.</description>
+      <description>I am a Web Engineer at the Transportaion Division,Alibaba(Fliggy&amp;rsquo;s parent company,Stock Code:BABA) and I go by the nickname &amp;ldquo;YaoYuan(遥渊)&amp;rdquo; here for convinence in the firms.&#xA;Previously,I worked as a Full Stack Engineer at the DevOps&amp;amp;Automation 1 Department,Instructure and Development Center,China Merchants Bank(the biggest Joint-Stock Commercial in China),in Shenzhen China🇨🇳 from 2021 to 2023.&#xA;My ongoing devepment project involve web deveopment,with a specific focus on pure front-end and full stack using NodeJS.</description>
     </item>
   </channel>
 </rss>
