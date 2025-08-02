@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Node on Liu Feng</title><link>https://yaoyuanArtemis.github.io/tags/node/</link><description>Recent content in Node on Liu Feng</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>&amp;copy; 2021 &lt;a href="https://www.wangchucheng.com/">WANG Chucheng&lt;/a> and &lt;a href="https://www.ruiqima.com/">MA Ruiqi&lt;/a></copyright><lastBuildDate>Sat, 02 Aug 2025 13:13:14 +0800</lastBuildDate><atom:link href="https://yaoyuanArtemis.github.io/tags/node/index.xml" rel="self" type="application/rss+xml"/><item><title>NodeJS</title><link>https://yaoyuanArtemis.github.io/posts/node_wip/</link><pubDate>Sat, 02 Aug 2025 13:13:14 +0800</pubDate><guid>https://yaoyuanArtemis.github.io/posts/node_wip/</guid><description>数据库
+日志
+异常
+权限
+校验
+&amp;hellip;
+NodeJs缺陷 由于天生单线程特性，面对CPU密集型任务，可能会导致性能瓶颈 从性能来看：Bun &amp;gt; Deno &amp;gt; Node
+Deno和Bun天生支持Typescript
+Deno增加了权限模型，更安全
+Node线程 libuv线程池 处理IO密集型任务
+worker_threads 处理计算密集型任务
+Worker_threads Node.js 10.x 版本开始，引入了 worker_threads 模块，着重处理CPU密集型任务
+Nodejs默认只有一个JS线程，但是可以创建多个JS线程辅助计算。使用 worker_threads 可以实现真正意义上的多线程并行计算
+现代操作系统的线程调度器可以将不同的线程分配到不同的 CPU 核心上并行执行
+线程不直接共享内存，每个threads有自己的v8引擎；通过postMessage传递数据，实际上就是传统的跨进程数据传递方式
+JS的线程不和其他多线程语言一样，比如go语言线程之间天然共享内存。
+Node的进程和线程 // 进程 const cluster = require(&amp;quot;cluster&amp;quot;) culster.fork() // 开启进程 // 线程 const {Worker} = require(&amp;quot;worker_threads&amp;quot;) const worker1 = new Worker(地址) NodeJS架构 Node分为4大部分，Node standard library，Node bindings，V8和libuv
+Node bindings：封装C++和JS的桥梁，封装V8和libuv
+NodeJs运行时 缺点：一旦某个计算过程崩溃，整个服务就崩溃
+BFF架构 服务端和服务端之间没有并发限制
+中间件的洋葱模型 Koa/MidwayJs中的中间件使用洋葱模型；Express则是队列模型
+// myKoa.js const {createServer} from 'http' class MyKoa{ handlerList = [] use(fn){ this.</description></item></channel></rss>

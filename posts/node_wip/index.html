@@ -1,0 +1,254 @@
+<!doctype html><html lang=en dir=ltr><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>NodeJS | Liu Feng</title><meta name=generator content="Hugo Eureka 0.9.3"><link rel=stylesheet href=https://yaoyuanArtemis.github.io/css/eureka.min.9cec6350e37e534b0338fa9a085bf06855de3b0f2dcf857e792e5e97b07ea905d4d5513db554cbc26a9c3da622bae92d.css><script defer src=https://yaoyuanArtemis.github.io/js/eureka.min.fa9a6bf6d7a50bb635b4cca7d2ba5cf3dfb095ae3798773f1328f7950028b48c17d06276594e1b5f244a25a6c969a705.js></script>
+<link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=preload href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" as=style onload='this.onload=null,this.rel="stylesheet"'><link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/base16/solarized-light.min.css media=print onload='this.media="all",this.onload=null' crossorigin><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js crossorigin></script>
+<link rel=stylesheet href=https://yaoyuanArtemis.github.io/css/highlightjs.min.2958991528e43eb6fc9b8c4f2b8e052f79c4010718e1d1e888a777620e9ee63021c2c57ec7417a3108019bb8c41943e6.css media=print onload='this.media="all",this.onload=null'><script defer type=text/javascript src=https://yaoyuanArtemis.github.io/js/fontawesome.min.43188b2fd13c27dbb34eb32b5138ddb548a5804f430376f50f0ee994d02357ea9c4f3f1380a0d928b702dc2004164443.js></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ media=print onload='this.media="all",this.onload=null' crossorigin><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin></script>
+<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script><script defer src=https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js integrity=sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0 crossorigin></script>
+<link rel=icon type=image/png sizes=32x32 href=https://yaoyuanArtemis.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png><link rel=apple-touch-icon sizes=180x180 href=https://yaoyuanArtemis.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png><meta name=description content="Node服务"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://yaoyuanArtemis.github.io/posts/"},{"@type":"ListItem","position":2,"name":"NodeJS","item":"https://yaoyuanArtemis.github.io/posts/node_wip/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://yaoyuanArtemis.github.io/posts/node_wip/"},"headline":"NodeJS | Liu Feng","datePublished":"2025-08-02T13:13:14+08:00","dateModified":"2025-08-02T13:13:14+08:00","wordCount":710,"author":{"@type":"Person","name":["example-author"]},"publisher":{"@type":"Person","name":"Liu Feng","logo":{"@type":"ImageObject","url":"https://yaoyuanArtemis.github.io/images/icon.png"}},"description":"Node服务"}</script><meta property="og:title" content="NodeJS | Liu Feng"><meta property="og:type" content="article"><meta property="og:image" content="https://yaoyuanArtemis.github.io/images/icon.png"><meta property="og:url" content="https://yaoyuanArtemis.github.io/posts/node_wip/"><meta property="og:description" content="Node服务"><meta property="og:locale" content="en"><meta property="og:site_name" content="Liu Feng"><meta property="article:published_time" content="2025-08-02T13:13:14+08:00"><meta property="article:modified_time" content="2025-08-02T13:13:14+08:00"><meta property="article:section" content="posts"><meta property="article:tag" content="Node"><meta property="article:tag" content="V8"><meta property="article:tag" content="EventLoop"><meta property="article:tag" content="Backend"><meta property="og:see_also" content="https://yaoyuanArtemis.github.io/posts/v8/"><body class="flex min-h-screen flex-col"><header class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"><div class="mx-auto w-full max-w-screen-xl"><script>let storageColorScheme=localStorage.getItem("lightDarkMode");((storageColorScheme=="Auto"||storageColorScheme==null)&&window.matchMedia("(prefers-color-scheme: dark)").matches||storageColorScheme=="Dark")&&document.getElementsByTagName("html")[0].classList.add("dark")</script><nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0"><a href=/ class="me-6 text-primary-text text-xl font-bold">Liu Feng</a>
+<button id=navbar-btn class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+<i class="fas fa-bars"></i></button><div id=target class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20"><div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0"><a href=/details/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent me-4">Details</a>
+<a href=/posts/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 selected-menu-item me-4">Posts</a>
+<a href=/projects/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent me-4">Projects</a></div><div class=flex><div class="relative pt-4 md:pt-0"><div class="cursor-pointer hover:text-eureka" id=lightDarkMode><i class="fas fa-adjust"></i></div><div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id=is-open></div><div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40" id=lightDarkOptions><span class="px-4 py-1 hover:text-eureka" name=Light>Light</span>
+<span class="px-4 py-1 hover:text-eureka" name=Dark>Dark</span>
+<span class="px-4 py-1 hover:text-eureka" name=Auto>Auto</span></div></div></div></div><div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id=is-open-mobile></div></nav><script>let element=document.getElementById("lightDarkMode");storageColorScheme==null||storageColorScheme=="Auto"?document.addEventListener("DOMContentLoaded",()=>{window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",switchDarkMode)}):storageColorScheme=="Light"?(element.firstElementChild.classList.remove("fa-adjust"),element.firstElementChild.setAttribute("data-icon","sun"),element.firstElementChild.classList.add("fa-sun")):storageColorScheme=="Dark"&&(element.firstElementChild.classList.remove("fa-adjust"),element.firstElementChild.setAttribute("data-icon","moon"),element.firstElementChild.classList.add("fa-moon")),document.addEventListener("DOMContentLoaded",()=>{getcolorscheme(),switchBurger()})</script></div></header><main class="grow pt-16"><div class=pl-scrollbar><div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8"><div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12"><div class="bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"><article class=prose><h1 class=mb-4>NodeJS</h1><div class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"><div class="me-6 my-2"><i class="fas fa-calendar me-1"></i>
+<span>2025-08-02</span></div><div class="me-6 my-2"><i class="fas fa-clock me-1"></i>
+<span>4 min read</span></div></div><ul><li><p>数据库</p></li><li><p>日志</p></li><li><p>异常</p></li><li><p>权限</p></li><li><p>校验</p></li><li><p>&mldr;</p></li></ul><p><img src=images/image.png alt></p><h3 id=nodejs缺陷>NodeJs缺陷</h3><ul><li>由于天生单线程特性，面对CPU密集型任务，可能会导致性能瓶颈</li></ul><p>从性能来看：<code>Bun > Deno > Node</code></p><ul><li><p>Deno和Bun天生支持Typescript</p></li><li><p>Deno增加了权限模型，更安全</p></li></ul><h3 id=node线程>Node线程</h3><ul><li>libuv线程池</li></ul><p>处理IO密集型任务</p><ul><li>worker_threads</li></ul><p>处理计算密集型任务</p><h3 id=worker_threads>Worker_threads</h3><p>Node.js 10.x 版本开始，引入了 <code>worker_threads</code> 模块，着重处理CPU密集型任务</p><p>Nodejs默认只有一个JS线程，但是可以创建多个JS线程辅助计算。使用 <code>worker_threads</code> 可以实现真正意义上的多线程并行计算</p><p>现代操作系统的线程调度器可以将不同的线程分配到不同的 CPU 核心上并行执行</p><p>线程不直接共享内存，每个threads有自己的<code>v8引擎</code>；通过<code>postMessage</code>传递数据，实际上就是传统的跨进程数据传递方式</p><p>JS的线程不和其他多线程语言一样，比如go语言线程之间天然共享内存。</p><h3 id=node的进程和线程>Node的进程和线程</h3><pre><code class=language-javascript>// 进程
+const cluster = require(&quot;cluster&quot;)
+culster.fork() // 开启进程
+// 线程
+const {Worker} = require(&quot;worker_threads&quot;)
+const worker1 = new Worker(地址)
+</code></pre><h3 id=nodejs架构>NodeJS架构</h3><p>Node分为4大部分，<code>Node standard library</code>，<code>Node bindings</code>，<code>V8</code>和<code>libuv</code></p><p>Node bindings：封装C++和JS的桥梁，封装V8和libuv</p><p><img src alt></p><h3 id=nodejs运行时>NodeJs运行时</h3><p><img src alt></p><p><img src alt></p><p>缺点：一旦某个计算过程崩溃，整个服务就崩溃</p><h3 id=bff架构>BFF架构</h3><p><img src alt></p><p><img src alt></p><p>服务端和服务端之间没有并发限制</p><h3 id=中间件的洋葱模型>中间件的洋葱模型</h3><p>Koa/MidwayJs中的中间件使用<strong>洋葱模型</strong>；Express则是<strong>队列模型</strong></p><pre><code class=language-javascript>// myKoa.js
+const {createServer} from 'http'
+class MyKoa{
+  handlerList = []
+  use(fn){
+    this.handlerList.push(fn)
+  }
+  _excute(){
+    if(this.handlerList.length === 0) return
+    const firstHandler = this.handler.shift()
+    firstHandler(ctx,()=&gt;{
+      return this._excute()
+    })
+  }
+  listen(port,callback){
+    createServer((req,res)=&gt;{
+      req.write()
+      _excute()
+      res.write()
+    })
+  }
+}
+const app = new MyKoa()
+app.use((ctx,next)=&gt;{
+  // ...
+  next()
+  // ...
+})
+app.listen(8001,()=&gt;{
+  
+})
+</code></pre><h3 id=libuv>libuv</h3><p>非阻塞IO和事件循环得益于libuv</p><h3 id=开启node进程>开启Node进程</h3><ul><li>fork方式</li></ul><pre><code class=language-javascript>// index.js
+const http = require(&quot;http&quot;)
+const fork = require(&quot;child_process&quot;).fork
+const server = http.createServer((req,res) =&gt;{
+  if(req.url === &quot;/get-sum&quot;){
+    const childProcess = fork(&quot;./childProcess.js&quot;)
+    childProcess.on(&quot;message&quot;,data=&gt;{
+      res.send(data)
+    })
+  }
+})
+server.listen(3000,()=&gt;{
+  console.info(&quot;localhost:3000&quot;)
+})
+// childProcess.js
+function childFork(){
+  let sum = 0
+  for(let i = 0; i&lt;10000;i++){
+    sum += i
+  }
+}
+ process.on(&quot;message&quot;,data=&gt;{
+    const sum = childFork()
+    console.log(&quot;子进程id:&quot;,process.id)
+    process.send(sum)
+  })
+</code></pre><ul><li>cluster方式</li></ul><p><img src alt></p><h3 id=js-bridge>JS-Bridge</h3><p>JS不能调用native api，比如微信api。使用JS-Bridge就可以调用了。</p><ul><li><p>URL scheme （补充异步方案）</p></li><li><p>注册全局API （无法处理异步问题）</p></li></ul><p><img src alt></p><h3 id=非阻塞>非阻塞</h3><p>Node作为一种单线程环境，为什么却有高并发？</p><p><img src alt></p><p>Node单线程指的是只有一个线程处理JS代码，但是会有其他线程处理IO操作</p><p><img src alt></p><p>如果写了死循环，调用栈无法清空</p><p><img src alt></p><p>高并发的秘诀就是，凭借<strong>异步模块⚠️</strong>和<strong>事件循环</strong>达到高并发，将耗时操作<strong>清除出调用栈</strong>，异步模块是多线程，事件循环发现耗时操作执行完成后，会把对应的<code>回调函数放回调用栈</code></p><h3 id=commonjs和esmodule>CommonJS和ESmodule</h3><ul><li><p>CJS是值传递；ESM是引用传递</p></li><li><p>CJS运行时加载；ESM<code>预编译</code></p></li></ul><p><img src alt></p><p>CommonJS运行时加载</p><p><img src alt></p><h3 id=stream流模式>stream流模式</h3><p>这是一个底层模块，平时几乎不会单独使用这个模块，但是也需要了解一下</p><ul><li>缓冲模式</li></ul><p>与流模式对应的就是缓冲模式，也叫传统模式</p><p>数据从磁盘<strong>全部加载到内存</strong>后，CPU进行全部数据的处理</p><ul><li>流模式</li></ul><p>流模式则是数据从磁盘部分加载到内存中，CPU就会进行处理，加载一点处理一点，将资源切分成小块。优点：占用的内存更小；调用端可以更快得到响应 总的来说就是高效</p><ul><li><p>可读流</p></li><li><p>可写流</p></li><li><p>双工流</p></li></ul><p><img src alt></p><p>流之间的交互上，引用了pipe管道的概念</p><p>一般情况下，流对象只处理字符串和buffer，并不是直接处理js对象。流更常见于处理原始数据，比如字符串或者二进制，如果遇到处理js对象的场景，通常需要把js对象序列化和反序列化处理</p><pre><code class=language-javascript>// 需求：存储来自前端的一张图片到本地
+const http = require(&quot;http&quot;)
+const fs = require(&quot;fs&quot;)
+// req 本质就是readable
+const server = http.createServer((req,res) =&gt; {
+    // 创建可写流
+    const w = fs.createWriteStream(&quot;./x.jpg&quot;)
+    req.on(&quot;data&quot;, (chunk) =&gt; {
+        w.write(chunk)
+    })
+    req.on(&quot;end&quot;, () =&gt; {
+        w.end()
+        res.end(&quot;图片保存完成&quot;)
+    })
+    req.on(&quot;error&quot;, (err) =&gt; {
+        console.log(err)
+        res.end(&quot;图片保存失败&quot;)
+    })
+    // req.pipe(w)
+    // req.end(&quot;图片保存成功&quot;)
+    // pipeline是pipe的进阶版，当管道以及异常比较多的时候，非常方便高效
+})
+server.listen(3000)
+</code></pre><h3 id=pipe管道>pipe管道</h3><p>连接可读流到可写流，数据自动流入，不用重写_read和_write方法</p><h3 id=转换流>转换流</h3><p><img src alt></p><h3 id=nestjs生命周期>Nestjs生命周期</h3><p><img src alt></p><p><img src alt></p><h3 id=dtodao>DTO&DAO</h3><p><img src alt></p><h3 id=多环境配置>多环境配置</h3><ul><li>dotenv</li></ul><p>解析<code>.env</code>文件里的属性&所有属性挂载到<code>process.env</code>下</p><ul><li>config</li></ul><h3 id=数据校验>数据校验</h3><p>Nodejs常使用数据校验库<code>Joi</code></p><pre><code class=language-javascript>Joi.string().valid([3306,3307])
+Joi.string().domain()
+Joi.string().url()
+</code></pre><h3 id=ormtypeorm>ORM&TypeORM</h3><p>作用：使用JS代替SQL语句</p><h3 id=实例化和依赖注入>实例化和依赖注入</h3><ul><li><p>整个应用程序运行期间都可以使用，选择<strong><code>new实例化</code>；</strong>确保资源合理使用，更好管理创建和销毁，<strong><code>选择依赖注入</code></strong>，比如数据库连接对象就可以自动创建、销毁</p></li><li><p>依赖注入需要<code>对象解析依赖</code>和<code>实例化</code>，性能开销大；实例化性能开销小</p></li></ul><h3 id=切面编程依赖注入>切面编程&依赖注入</h3><p><img src alt></p><p><img src alt></p><h3 id=日志模块>日志模块</h3><p>pino</p><p>winston</p><p><img src alt></p><h3 id=监控node内存泄漏>监控Node内存泄漏</h3><ul><li>使用<code>process.MemoryUsage</code>进行初步检测</li></ul><pre><code class=language-javascript>setInterval(()=&gt;{
+  const memory = process.MemoryUsage()
+    console.log(
+RSS: ${memoryUsage.rss} bytes
+);
+    console.log(
+Heap Total: ${memoryUsage.heapTotal} bytes
+);
+    console.log(
+Heap Used: ${memoryUsage.heapUsed} bytes
+);
+    console.log(
+External: ${memoryUsage.external} bytes
+);
+},5000)
+</code></pre><p>如果发现<code>RSS</code>或<code>heapUsed</code>快速增长则可能存在内存泄漏</p><ul><li>使用<code>heapDump</code>生成堆快照</li></ul><p>通过对比不同时间点的<code>堆内存快照 heapSnapShot</code></p><pre><code class=language-javascript>npm install heapDump
+const heapDump = require(&quot;heapDump&quot;)
+// 在某个时间点生成堆快照
+setTimeout(() =&gt; {
+    heapdump.writeSnapshot('./heapdump-' + Date.now() + '.heapsnapshot');
+}, 10000);
+</code></pre><ul><li>Chrome Devtools分析堆快照</li></ul><ol><li><p>将生成的堆快照文件导入到 Chrome DevTools 的 Memory 面板中进行分析。具体步骤如下：</p><ol><li><p>打开 Chrome 浏览器，访问 <code>chrome://inspect</code>。</p></li><li><p>点击 “Open dedicated DevTools for Node” 打开 Node.js 的调试面板。</p></li><li><p>在 DevTools 中切换到 Memory 面板</p></li><li><p>点击 “Load” 按钮，选择之前生成的堆快照文件进行加载。</p></li><li><p>使用 DevTools 提供的分析工具，如 “Comparison” 模式，对比不同时间点的堆快照，找出哪些对象的数量在不断增加。</p></li></ol></li><li><p>也可以启动的时候使用<code>--inspect</code>模式，然后结合DevTools查看内存情况</p></li></ol><p>核心还是生成heapSnapShot然后在Devtools里查看</p><ul><li>使用<code>cilnic</code>进行性能分析</li></ul><pre><code class=language-bash>npm install clinic
+clinic heapprofiler -- node your-app.js
+</code></pre><p>会生成一份<code>堆内存分析报告</code></p><h3 id=node内存大小>Node内存大小</h3><p>默认Node内存大小是2GB，但是我们也可以手动设置Node大小 <code>node --max-old-space-size=4096 ./test.js</code></p><h3 id=node应用注意>Node应用注意⚠️</h3><ul><li>局部变量</li></ul><p>程序执行结束且没有引用的时候就会消失，为了避免内存爆掉，尽量多使用局部变量</p><ul><li>全局变量</li></ul><p>一直会存活到程序执行结束</p><h3 id=pm2-进程管理工具>PM2 进程管理工具</h3><ul><li><p>可以后台运行Node应用</p></li><li><p>自动重启Node应用</p></li></ul><h3 id=node-工程化工具-项目脚手架>Node 工程化工具 项目脚手架</h3><p>Node可以在 <code>立项-开发调试-测试-构建-部署</code> 等环节都可以参与</p><pre><code class=language-json>{
+  &quot;name&quot;: &quot;test-project&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;A Vue.js project&quot;,
+  &quot;main&quot;: &quot;src/main.js&quot;,
+  &quot;private&quot;: true,
+  &quot;type&quot;:&quot;module&quot;,  node支持esm
+  &quot;bin&quot;:&quot;index.js&quot;,
+  &quot;scripts&quot;: {
+    &quot;dev&quot;: &quot;webpack-dev-server --inline --progress --config build/webpack.dev.conf.js&quot;,
+  &quot;dependencies&quot;: {
+    &quot;vue&quot;: &quot;^2.5.2&quot;
+  },
+  &quot;devDependencies&quot;: {
+    &quot;autoprefixer&quot;: &quot;^7.1.2&quot;,
+    &quot;babel-core&quot;: &quot;^6.22.1&quot;,
+    &quot;babel-eslint&quot;: &quot;^8.2.1&quot;,
+    &quot;babel-helper-vue-jsx-merge-props&quot;: &quot;^2.0.3&quot;,
+    &quot;babel-jest&quot;: &quot;^21.0.2&quot;,
+  },
+  &quot;engines&quot;: {
+    &quot;node&quot;: &quot;&gt;= 6.0.0&quot;,
+    &quot;npm&quot;: &quot;&gt;= 3.0.0&quot;
+  },
+  &quot;browserslist&quot;: [&quot;&gt; 1%&quot;, &quot;last 2 versions&quot;, &quot;not ie &lt;= 8&quot;]
+}
+</code></pre><pre><code class=language-javascript>#!/usr/bin/env node // 需要告诉环境
+const require = require(&quot;commander&quot;) // webpack -v
+const inquirer = require('inquirer');
+const path = require('path');
+const fs = require('fs');
+const download = require('download-git-repo'); // 从git下载文件夹到本地
+const chalk = require(&quot;chalk&quot;) // 上色
+const ora = require(&quot;ora&quot;) // 下载转圈
+const progress = require(&quot;progress&quot;) // 下载进度条
+const command = require(&quot;command&quot;) // process.argv[]
+import { Command } from &quot;commander&quot;
+const program = new Command();
+program.option(&quot;-a [num]&quot;, &quot;this is a&quot;, (num) =&gt; {
+console.log(&quot;u use -a and input &quot; + num);
+})
+program.version(&quot;1.0.0&quot;);
+program.command(&quot;init &lt;name&gt;&quot;).action((name) =&gt; {
+console.log(name);
+})
+program.parse(process.argv);
+// 定义交互式问题
+const questions = [
+    {
+        type: &quot;checkbox&quot;,
+        message: &quot;选择功能&quot;,
+        // 键名
+        name: &quot;projectFeature&quot;,
+        choices: [
+            &quot;babel&quot;,
+            &quot;webpack&quot;,
+            &quot;router&quot;
+        ]
+    },
+    {
+        type: &quot;input&quot;,
+        message: &quot;请输入项目名称&quot;,
+        name: &quot;projectName&quot;
+    },
+    {
+        type: &quot;list&quot;,
+        message: &quot;选择项目类型&quot;,
+        name: &quot;projectType&quot;,
+        choices: [
+            &quot;react&quot;,
+            &quot;vue&quot;
+        ]
+    },
+    {
+        type: &quot;confirm&quot;,
+        message: &quot;是否生成&quot;,
+        // 键名
+        name: &quot;render&quot;
+    }
+];
+inquirer.prompt(questions).then((res) =&gt; {
+    let _target = 'facebook/react';
+    let _outputDir = path.resolve(process.cwd(), res.projectName);
+    if (res.projectType === &quot;vue&quot;) {
+        _target = 'vuejs/vue';
+    }
+    try {
+        fs.mkdirSync(_outputDir);
+        download(&quot;github:&quot; + _target, _outputDir, {}, function (err) {
+            if (err) {
+                console.error(&quot;下载失败:&quot;, err);
+            } else {
+                console.log(&quot;下载成功&quot;);
+            }
+        });
+    } catch (error) {
+        console.error(&quot;创建目录时出错:&quot;, error);
+    }
+});    
+</code></pre><h3 id=node-工程化工具-构建插件>Node 工程化工具 构建插件</h3><p>编写插件主要是为了完成apply方法</p><pre><code class=language-javascript>class myplugin {
+    constructor(config) {
+        this.config = config
+    }
+    apply(compiler) {
+        //监听webpack的某个生命周期 emit打包完成 done打包结束 20duo
+        compiler.hooks.emit.tap(&quot;myplugin&quot;, (compilation) =&gt; {
+            console.log(compilation.assets['app2.421c.bundle.js'].source())
+        })
+        compiler.hooks.done.tap(&quot;myplugin&quot;, () =&gt; { // 已经生成了dist文件夹
+        })
+    }
+}
+module.exports = myplugin
+//js加入一些的东西
+//js-》插入一些东西
+</code></pre><h3 id=node-工程化-小工具开发>Node 工程化 小工具开发</h3><p>略</p><h3 id=node-工程化-turbofan优化>Node 工程化 TurboFan优化</h3><p>一些热点代码编译成机器码缓存使用</p><pre><code class=language-javascript>node --trace-opt xxx.js
+</code></pre><p><img src alt></p></article><div class=my-4><a href=https://yaoyuanArtemis.github.io/tags/node/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Node</a>
+<a href=https://yaoyuanArtemis.github.io/tags/v8/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#V8</a>
+<a href=https://yaoyuanArtemis.github.io/tags/eventloop/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#EventLoop</a>
+<a href=https://yaoyuanArtemis.github.io/tags/backend/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Backend</a></div><div class=py-2><div class="my-8 flex flex-col items-center md:flex-row"><a href=https://yaoyuanArtemis.github.io/authors/example-author/ class="md:me-4 text-primary-text h-24 w-24"><img src=https://raw.githubusercontent.com/yaoyuanArtemis/imgages/main/avatar.png class="bg-primary-bg w-full rounded-full" alt=Avatar></a><div class="mt-4 w-full md:mt-0 md:w-auto"><a href=https://yaoyuanArtemis.github.io/authors/example-author/ class="mb-2 block border-b pb-1 text-lg font-bold"><h3>Liu Feng</h3></a><span class="block pb-2">Aenean vel bibendum quam. Aliquam at mollis quam. Proin efficitur.</span>
+<a href=yaoyuan.lf@gmail.com class=me-2><i class="fas fa-envelope"></i></a>
+<a href="https://scholar.google.com/citations?user=0O_0fFAAAAAJ" class=me-2><i class="fab fa-google"></i></a>
+<a href=https://github.com/yaoyuanArtemis class=me-2><i class="fab fa-github"></i></a>
+<a href=public/images/resume.pdf class=me-2><i class="fas fa-file-pdf"></i></a></div></div></div><div class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"><div></div><div class="mt-4 md:mt-0 md:text-right"><span class="text-primary-text block font-bold">Next</span>
+<a href=https://yaoyuanArtemis.github.io/posts/v8/ class=block>V8</a></div></div></div><div class=col-span-2><div class="bg-primary-bg
+prose sticky top-16 z-10 hidden px-6 py-4 lg:block"><h3>On This Page</h3></div><div class="sticky-toc hidden px-6 pb-6 lg:block"><nav id=TableOfContents><ul><li><ul><li><a href=#nodejs缺陷>NodeJs缺陷</a></li><li><a href=#node线程>Node线程</a></li><li><a href=#worker_threads>Worker_threads</a></li><li><a href=#node的进程和线程>Node的进程和线程</a></li><li><a href=#nodejs架构>NodeJS架构</a></li><li><a href=#nodejs运行时>NodeJs运行时</a></li><li><a href=#bff架构>BFF架构</a></li><li><a href=#中间件的洋葱模型>中间件的洋葱模型</a></li><li><a href=#libuv>libuv</a></li><li><a href=#开启node进程>开启Node进程</a></li><li><a href=#js-bridge>JS-Bridge</a></li><li><a href=#非阻塞>非阻塞</a></li><li><a href=#commonjs和esmodule>CommonJS和ESmodule</a></li><li><a href=#stream流模式>stream流模式</a></li><li><a href=#pipe管道>pipe管道</a></li><li><a href=#转换流>转换流</a></li><li><a href=#nestjs生命周期>Nestjs生命周期</a></li><li><a href=#dtodao>DTO&DAO</a></li><li><a href=#多环境配置>多环境配置</a></li><li><a href=#数据校验>数据校验</a></li><li><a href=#ormtypeorm>ORM&TypeORM</a></li><li><a href=#实例化和依赖注入>实例化和依赖注入</a></li><li><a href=#切面编程依赖注入>切面编程&依赖注入</a></li><li><a href=#日志模块>日志模块</a></li><li><a href=#监控node内存泄漏>监控Node内存泄漏</a></li><li><a href=#node内存大小>Node内存大小</a></li><li><a href=#node应用注意>Node应用注意⚠️</a></li><li><a href=#pm2-进程管理工具>PM2 进程管理工具</a></li><li><a href=#node-工程化工具-项目脚手架>Node 工程化工具 项目脚手架</a></li><li><a href=#node-工程化工具-构建插件>Node 工程化工具 构建插件</a></li><li><a href=#node-工程化-小工具开发>Node 工程化 小工具开发</a></li><li><a href=#node-工程化-turbofan优化>Node 工程化 TurboFan优化</a></li></ul></li></ul></nav></div><script>window.addEventListener("DOMContentLoaded",()=>{enableStickyToc()})</script></div><div class="bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"><h3>See Also</h3><a href=https://yaoyuanArtemis.github.io/posts/v8/ class=no-underline>V8</a><br></div></div><script>document.addEventListener("DOMContentLoaded",()=>{hljs.highlightAll()})</script></div></div></main><footer class=pl-scrollbar><div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b"><p class="text-sm text-tertiary-text">&copy; 2021 <a href=https://www.wangchucheng.com/>WANG Chucheng</a> and <a href=https://www.ruiqima.com/>MA Ruiqi</a>
+&#183; Powered by the <a href=https://github.com/wangchucheng/hugo-eureka class=hover:text-eureka>Eureka</a> theme for <a href=https://gohugo.io class=hover:text-eureka>Hugo</a></p></div></div></footer></body></html>
