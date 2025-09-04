@@ -14,7 +14,7 @@ categories:
     - Machine Learning
 date: '2025-09-04T13:11:22+08:00'
 lastmod: '2025-09-04T13:11:22+08:00'
-featuredImage:
+featuredimages/image:
 draft: false
 ---
 
@@ -35,9 +35,9 @@ Langchian的架构可以分为3层，由底层到高层分别是：
 
 大模型接入API、工作流API、Agent API
 
-![Langchain 模块](image-10.png)
+![Langchain 模块](images/image-10.png)
 
-![](image-9.png)
+![](images/image-9.png)
 
 #### Langchain搭建过程
 
@@ -55,13 +55,13 @@ pip3 install langchain
 pip3 show langchain
 ```
 
-![](image-11.png)
+![](images/image-11.png)
 
 * 注册DeepSeek的**API-KEY**
 
 * 创建好之后，在.env文件中注册这个DeepSeek的API key
 
-![](image.png)
+![](images/image.png)
 
 * 安装 **python-dotenv**
 
@@ -69,7 +69,7 @@ pip3 show langchain
 
 * 验证能不能顺利读取**API-KEY**
 
-![](image-1.png)
+![](images/image-1.png)
 
 * 使用OpenAI客户端对话验证DeepSeek
 
@@ -90,7 +90,7 @@ pip3 show langchain
   print(response.choices[0].message.content)
   ```
 
-![](image-2.png)
+![](images/image-2.png)
 
 * 安装**langchain-deepseek**
 
@@ -138,7 +138,7 @@ pip3 show langchain
    print(result)
    ```
 
-![JSON结构化输出](image-3.png)
+![JSON结构化输出](images/image-3.png)
 
 这一点很有意义，可以从输入字段中提取到JSON格式的文字&#x20;
 
@@ -146,7 +146,7 @@ pip3 show langchain
 
 > 需要LLM编一个新闻稿，然后从新闻稿中使用LLM提取出格式化数据📊（JSON：时间、地点、事件）
 
-![Complex Chain](image-4.png)
+![Complex Chain](images/image-4.png)
 
 * list\_memory chain
 
@@ -234,7 +234,7 @@ def crate_frontend():
             chatbot = gr.Chatbot(
                 height=500,
                 show_copy_button=True,
-                # avatar_images=(
+                # avatar_images/images=(
                 #     ""
                 # )
             )
@@ -282,7 +282,7 @@ demo.launch(
 )
 ```
 
-![Gradio封装的Langchain效果图](image-5.png)
+![Gradio封装的Langchain效果图](images/image-5.png)
 
 ##### 案例：调用工具
 
@@ -352,7 +352,7 @@ full_chain_with_print = prompt | llm_with_tools | parser | print_node | tool
 full_chain_with_print.invoke({"question":"请帮我分析gender,SeniorCitizen字段之间的相关关系"})
 ```
 
-![将问题转换为代码执行的agent](image-6.png)
+![将问题转换为代码执行的agent](images/image-6.png)
 
 * Chain with external function tools
 
@@ -360,13 +360,13 @@ full_chain_with_print.invoke({"question":"请帮我分析gender,SeniorCitizen字
 
 通常需要访问外部数据，那么需要提前谁知好**API\_KEY**
 
-![](image-8.png)
+![](images/image-8.png)
 
 ##### Agent based chain
 
 更高层的封装
 
-![](image-7.png)
+![](images/image-7.png)
 
 ```bash
 # 创建agent以及运行AgentExecutor
@@ -1130,10 +1130,10 @@ def main():
                 with st.chat_message(message["role"]):
                     if message["type"] == "dataframe":
                         st.dataframe(message["content"])
-                    elif message["type"] == "image":
+                    elif message["type"] == "images/image":
                         st.write(message["content"])
                         if os.path.exists('plot.png'):
-                            st.image('plot.png')
+                            st.images/image('plot.png')
                     else:
                         st.markdown(message["content"])
              
@@ -1154,8 +1154,8 @@ def main():
                         text = str(response)[str(response).find("GRAPH")+6:]
                         st.write(text)
                         if os.path.exists('plot.png'):
-                            st.image('plot.png')
-                        st.session_state.csv_messages.append({"role": "assistant", "content": text, "type": "image"})
+                            st.images/image('plot.png')
+                        st.session_state.csv_messages.append({"role": "assistant", "content": text, "type": "images/image"})
                     else:
                         st.markdown(response)
                         st.session_state.csv_messages.append({"role": "assistant", "content": response, "type": "text"})
