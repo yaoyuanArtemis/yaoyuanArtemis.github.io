@@ -1,6 +1,6 @@
-# Liu Feng Personal Website
+# Personal Website
 
-这是 [Liu Feng](https://yaoyuanArtemis.github.io/) 的个人主页与技术博客仓库，基于 [Hugo](https://gohugo.io/) 和 Eureka 主题构建，并通过 GitHub Actions 自动发布到 GitHub Pages。
+这是 [Yaoyuan](https://yaoyuanArtemis.github.io/) 的个人主页与技术博客仓库，基于 [Hugo](https://gohugo.io/) 和 Eureka 主题构建，并通过 GitHub Actions 自动发布到 GitHub Pages。
 
 站点主要用于展示个人简介、学习笔记、技术文章、项目文档和公开资料。目前内容重点包括 LLM、LLM Agent、模型微调、Node.js、V8、React、Hugo 等方向。
 
