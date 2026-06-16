@@ -1,6 +1,6 @@
 ---
 title: Vintage
-draft: false
+draft: true
 slogan: Injustice anywhere is a threat to justice everywhere.
 imgLeft: images/hero-left.jpg
 imgRight: images/hero-right.jpg
