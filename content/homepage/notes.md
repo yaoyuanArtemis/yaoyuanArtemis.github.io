@@ -1,10 +1,10 @@
 ---
-title: Projects
+title: Notes
 draft: false
 # Section you want to display
-section: Projects/llm
+section: notes
 # Pages count
-count: 3
+count: 4
 # Options: card, plain and masonry.
 style: plain
 

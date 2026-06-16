@@ -2,8 +2,8 @@ main:
   - name: Details
     url: '/details/'
     weight: 1
-  - name: Posts
-    url: /posts/
+  - name: Notes
+    url: /notes/
     weight: 2
   - name: Projects
     url: /Projects/

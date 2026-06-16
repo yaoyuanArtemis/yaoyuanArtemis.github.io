@@ -16,12 +16,9 @@ lastmod: '2021-03-31T13:11:22+08:00'
 featuredImage:
 draft: false
 ---
-
 LLM
 
 一言以蔽之，一个LLM模型就是一个概率数据库。它为任何给定字符的上下文字符分配一个概率分布
-
-https://github.com/yaoyuanArtemis/LLM-learning
 
 ## LLM-原理😈
 
@@ -31,14 +28,11 @@ https://github.com/yaoyuanArtemis/LLM-learning
 
 Google Brain团队在2017年发布了《Attetion is all your need》后引入了transformer架构，起初的目的是为了训练语言翻译模型。但是Open AI团队发现transformer是**字符预测**的关键解决方案
 
-  
-
 ### 模型架构
 
 ![](https://pcnqdohorvbp.feishu.cn/space/api/box/stream/download/asynccode/?code=Mjk5ZmM2MmFiOGM1MmI5YjcwNDBkN2JkMTdlY2M4OWFfTzJ1OGdhV0Y2ZDJZRnJpbzM3Ym0yaUdQSFJwWHZvTnJfVG9rZW46RU9tNWJkQTZRbzZpaFN4Tm5zQmNaanFBbjhkXzE3ODE2MTYzNzI6MTc4MTYxOTk3Ml9WNA&add_watermark=true&scene_type=CCM)
 
 - Embedding（嵌入向量）：将输入文字转化成数字｜文字向量化
-    
 
 ```JSON
 Token Embedding Look-Up Table:
@@ -61,7 +55,6 @@ Token Embedding Look-Up Table:
 这里每一个行代表一个Token，而每个维度表示一种场景（比如这个词的形容词、动词、名次etc）
 
 - Positional-Encoding（位置信息-嵌入向量）：输入文字相对位置关系 ｜ 向量添加位置信息
-    
 
 位置矩阵应该是一个和输入矩阵想同维度的矩阵，后面需要相加
 
@@ -89,34 +82,24 @@ Position Embedding Look-Up Table:
 ```
 
 - Multi-Head Attention：得到每个词相对于其他词的一个概率表
-    
 
 ![](https://pcnqdohorvbp.feishu.cn/space/api/box/stream/download/asynccode/?code=NmE0NWNiMDExYTRkZGNhOGExOTczMjBjODdlYWYxN2RfeTVwbmZITVllRXZXaWh3QlNoWXRLMkZ3aVViQ2ZzUXhfVG9rZW46VzdDOWJvdlJlb1Mza2x4WDlpQWMwbFlpbnZlXzE3ODE2MTYzNzI6MTc4MTYxOTk3Ml9WNA&add_watermark=true&scene_type=CCM)
-
-  
 
 ![](https://pcnqdohorvbp.feishu.cn/space/api/box/stream/download/asynccode/?code=OTZkNjY4N2NjYjdkN2I3ZWUxNjM0MDJhYzEwMjFmZmNfRmVZNlVmcERjSGNUSHRnR2M2UlFJSzVac3B3SUFuc1NfVG9rZW46SnFCZWJhQnlDb3dlaUx4OUZFQWNST3NkbkNlXzE3ODE2MTYzNzI6MTc4MTYxOTk3Ml9WNA&add_watermark=true&scene_type=CCM)
 
 Q矩阵和K矩阵相乘，表示每个字符相对于其他字符的相似度，得到的结果矩阵中，值越大相似度越高
 
 - Scale：MatMul中点积之后，所有元素极差变大，有些值更大有些值更小
-    
 - Mask：为了达到预测效果，“天下为公”，矩阵中的一些元素的值需要设置为0，后面通过不断学习来更新这些位置的数值
-    
 - SoftMax：将矩阵元素中的值变为概率值。也叫归一化
-    
 - Concatenate：拆分后的矩阵又恢复到原始数据维度，矩阵连接起来
-    
-
 - Normalization Layer：将概率分布整体向下平移，小的值较小移动，大的值较大移动。也叫归一化
-    
 
 貌似和SoftMax是一样的，也是把值进行一次合理梳理
 
 - Linear：结合词汇表，形成一个非常大的矩阵（输入中华人民共和国，假设词汇表为10000，矩阵为7*10000）可以找出概率最大的字符
-    
-      前一步输出的16*64矩阵和100000词汇表矩阵相乘，得到的结果就是每个token和词汇表值的概率值。每个token对应的最大值就是最有可能被预测出现的单词
-    
+
+    前一步输出的16*64矩阵和100000词汇表矩阵相乘，得到的结果就是每个token和词汇表值的概率值。每个token对应的最大值就是最有可能被预测出现的单词
 
 ### Pre-Training 预训练
 
@@ -130,8 +113,6 @@ Reinforce Learning from Human Feedback
 
 模型给出的多个结果反馈给用户，用户通过选择最合适的一项来修改模型参数
 
-  
-
 ### Prompt Engineering
 
 ## LLM-编码过程🧑💻
@@ -139,7 +120,6 @@ Reinforce Learning from Human Feedback
 https://lightning.ai/liufengac/studios/scratch-studio-zktxoh~01k1b88aaa02k6syj4b7467203?view=public§ion=featured
 
 1. ### 构造输入张量
-    
 
 下载数据集到本地(可选)
 
@@ -157,8 +137,6 @@ import request  // 手动安装  2.32.4
 
 #### 获取数据集
 
-  
-
 ```Python
 # 如果没有文件 请求数据集
 if not os.path.exists("sales-textbooks.txt"):
@@ -172,24 +150,20 @@ with open("sales-textbooks.txt","r") as f:
 ```
 
 1. Tokenize化
-    
 
 准备好数据集之后，需要将拿到的数据集进行Tokenize化
 
 Tokenize的方法比较多：
 
 1. 以字母为单元
-    
 2. 以word和sub-word为单元
-    
-    1. 这是主流方案；OpenIAI团队使用的就是这类方案 tickToken
-        
-    
-    ```Python
-    import tiktoken
-    enc = tiktoken.get_encoding("o200k_base")
-    ```
-    
+
+   1. 这是主流方案；OpenIAI团队使用的就是这类方案 tickToken
+
+   ```Python
+   import tiktoken
+   enc = tiktoken.get_encoding("o200k_base")
+   ```
 
 ![](https://pcnqdohorvbp.feishu.cn/space/api/box/stream/download/asynccode/?code=YjRjYjY5MTJmYTQ1ZDMxOGExYTA5NGQ3OWQyMWY1ZmZfM1pVc1pqN1hncGJsTW9teFdmbm1SZXdydjQ3Sm1zSE9fVG9rZW46UUh3R2JwempRbzJUUmR4c01uRmNCcVIxbmtmXzE3ODE2MTYzNzI6MTc4MTYxOTk3Ml9WNA&add_watermark=true&scene_type=CCM)
 
@@ -267,7 +241,6 @@ y = y_batch_embedding + positinal_encoding_lookup_table
 ![](https://pcnqdohorvbp.feishu.cn/space/api/box/stream/download/asynccode/?code=NWM1YTYxNjIzN2ZmODNkMjc5OWMyOTBhMzViYmM1ZGVfWVdxdUpFQThKdmdxZGxPWElmVmpmOGxmM3BTV2dhSkZfVG9rZW46TnZ4QWI2V2hZb3VOUWl4QUxnbGN2bHVOblRiXzE3ODE2MTYzNzI6MTc4MTYxOTk3Ml9WNA&add_watermark=true&scene_type=CCM)
 
 2. ### Transformer架构编写
-    
 
 #### Get Q、K、V
 
@@ -290,8 +263,6 @@ mask = torch.triu(torch.ones(context_length,context_length),diagonal=1).bool()
 output = output.masked_fill(mask,float('-inf'))
 print(pd.DataFrame(output[0,0].detach().numpy()))
 ```
-
-  
 
 ![](https://pcnqdohorvbp.feishu.cn/space/api/box/stream/download/asynccode/?code=NzY1YTI1NzQ1YTA4NGZmNmMzN2I0NGQyNGU1ZjMzOThfdVZIUHlrQk05dHhmcEt4MUdvN0xyaXJvd3NrSjI5RDZfVG9rZW46RnRoOWJSbFVFb3B2NzN4NGFrR2M5SFl4bnlMXzE3ODE2MTYzNzI6MTc4MTYxOTk3Ml9WNA&add_watermark=true&scene_type=CCM)
 
@@ -334,23 +305,33 @@ output = output + layer_norm_output
 
 取出张量中的某一个Token行，均值靠近0，方差接近1
 
-均值：$$\mu = \frac{1}{H} \sum_{i=1}^{H} x_i$$
+均值：
 
-方差：$$\sigma^2 = \frac{1}{H} \sum_{i=1}^{H} (x_i - \mu)^2$$
+$$
+\mu = \frac{1}{H} \sum_{i=1}^{H} x_i
+$$
+
+方差：
+
+$$
+\sigma^2 = \frac{1}{H} \sum_{i=1}^{H} (x_i - \mu)^2
+$$
 
 归一化：
 
-  
+$$
+\hat{x}_i = \frac{x_i - \mu}{\sqrt{\sigma^2 + \epsilon}}
+$$
 
-$$\hat{x}_i = \frac{x_i - \mu}{\sqrt{\sigma^2 + \epsilon}}$$
-
-$$\epsilon $$是一个无限小的数，防止除0
+$$
+\epsilon $$是一个无限小的数，防止除0
 
 ![](https://pcnqdohorvbp.feishu.cn/space/api/box/stream/download/asynccode/?code=MTUzZjUwNWQ5ZTc2NjdmMTFkNzQ5MmNiODE1NWUxZmNfSVN5NW5PSWZ6TUUwRlg4RHVUSnZtU0lXWUViUm85NzRfVG9rZW46QWVaRmJ1MlFCb1JocWZ4RW9DRWNuMTJFbndjXzE3ODE2MTYzNzI6MTc4MTYxOTk3Ml9WNA&add_watermark=true&scene_type=CCM)
 
 重新缩放和偏移：
 
-$$Y_i = \gamma \hat{x}_i + \beta$$
+$$Y_i = \gamma \hat{x}_i + \beta
+$$
 
 ```Python
 output = layer_norm(output)
@@ -377,15 +358,13 @@ output = nn.Linear(d_modal,max_token_value+1)(output)
 推理策略：
 
 1. Greedy Search
-    
-      永远返回logits最高的token
-    
-      很多模型以及Pytorch**默认策略**
-    
-    ![](https://pcnqdohorvbp.feishu.cn/space/api/box/stream/download/asynccode/?code=ZGM0MzE4OTViNDU3NzEyMGE4ZDNhMmQwNTkyMDU1NTFfZHkwcTJHOWV2SWlIUmh3ZlpsTkY1R1p0SkFDQkgyY1lfVG9rZW46SUlEdmJqWDk2b1J4VzZ4NHNDa2NtVzRjbktMXzE3ODE2MTYzNzI6MTc4MTYxOTk3Ml9WNA&add_watermark=true&scene_type=CCM)
-    
+
+     永远返回logits最高的token
+
+     很多模型以及Pytorch**默认策略**
+
+   ![](https://pcnqdohorvbp.feishu.cn/space/api/box/stream/download/asynccode/?code=ZGM0MzE4OTViNDU3NzEyMGE4ZDNhMmQwNTkyMDU1NTFfZHkwcTJHOWV2SWlIUmh3ZlpsTkY1R1p0SkFDQkgyY1lfVG9rZW46SUlEdmJqWDk2b1J4VzZ4NHNDa2NtVzRjbktMXzE3ODE2MTYzNzI6MTc4MTYxOTk3Ml9WNA&add_watermark=true&scene_type=CCM)
 2. Beam Search
-    
 
 同时选取logits最大的Top N个Beam，等待所有Token预测结束后，返回所有Token logit总和最大的一个Beam
 
@@ -394,16 +373,13 @@ output = nn.Linear(d_modal,max_token_value+1)(output)
 ![](https://pcnqdohorvbp.feishu.cn/space/api/box/stream/download/asynccode/?code=MjMwZjhkN2ViMTVjMTc4ZGJmMDdhNjAxNmFkOGE2NjlfQmZLVmdDMndiVURIVU1QQXAxa0d2QThmQmhWdXIwampfVG9rZW46UkhWbGJLb1dZb29YdUZ4MXNOUmNVcDI4bmhiXzE3ODE2MTYzNzI6MTc4MTYxOTk3Ml9WNA&add_watermark=true&scene_type=CCM)
 
 3. TOP- K Sampling
-    
-       **选取**随机K个最高概率取样
-    
+
+      **选取**随机K个最高概率取样
 4. TOP- P Sampling
-    
 
 **选取**超过阈值
 
 5. Temperature
-    
 
 GreadySearch + TOP-P[Optional] + Temperature是目前最主流的策略组合
 
@@ -436,7 +412,6 @@ GreadySearch + TOP-P[Optional] + Temperature是目前最主流的策略组合
 transformer_block：12
 
 3. ### 用模型训练小说项目
-    
 
 A. 训练模型
 
@@ -484,9 +459,7 @@ D. 微调（二次训练）
 模型新的微调方式：
 
 - compile
-    
 - lora
-    
 
 ```Python
 # 微调文件
@@ -580,7 +553,6 @@ torch.save(model.state_dict(), 'model/model-scifi-finetune.pt')
 ```
 
 4. ### Stable Diffusion生成图片
-    
 
 也叫文生图片技术。是Stability.ai公司基于Transformer架构预训练的大模型
 
@@ -623,11 +595,8 @@ D - 训练数据量
 Chinchilla Scalling Law:
 
 1. **數據量（Tokens數）應該要約等於模型參數量的20倍**
-    
 2. **並且數據量跟模型參數量要同比放大**（Ex: 模型放大一倍，數據也要跟著增加一倍）
-    
 3. [Chinchilla data-optimal scaling laws: In plain English: In plain English](https://lifearchitect.ai/chinchilla/)
-    
 
 ![](https://pcnqdohorvbp.feishu.cn/space/api/box/stream/download/asynccode/?code=YTEzZjk5YWNmNDFjNTVkZDIxM2RiZjM5MDMzMTYxYzFfY09wOUVxdW4yZ2J0YU5kNEtJdHYyRmFvMDlVQkNUazhfVG9rZW46S09vOGJpMlpub1pXU1l4TVcwMmNlaUplbnFmXzE3ODE2MTYzNzI6MTc4MTYxOTk3Ml9WNA&add_watermark=true&scene_type=CCM)
 
@@ -635,13 +604,9 @@ https://axk51013.medium.com/llm%E5%B0%88%E6%AC%84-%E8%BF%8E%E6%8E%A52024%E5%B9%B
 
 ![](https://pcnqdohorvbp.feishu.cn/space/api/box/stream/download/asynccode/?code=YWZjMzFhMDg2ZmYyODU1ZTk3ZWFiNzQ1MWY3OTU3OWFfcEV4MUExSHRrNEo5cFQ4SGR0clVBN1o4S0FRYWIwamFfVG9rZW46Qk5rNGJvUjQ3b1dDSGx4SHFEbGNmeWdFbjRkXzE3ODE2MTYzNzI6MTc4MTYxOTk3Ml9WNA&add_watermark=true&scene_type=CCM)
 
-  
-
 ![](https://pcnqdohorvbp.feishu.cn/space/api/box/stream/download/asynccode/?code=Yjk2ZjdlZGJiM2E4YzZhNGYxN2I1MGExYTc1Y2JlOGRfR1ZMSUhYTDBDdmtBRWpYMjBQS2ZZYXpZQXpWWTMzTTBfVG9rZW46SGFocmJsZ1lMb2twc0N4QUh5TGNFZkR6blNlXzE3ODE2MTYzNzI6MTc4MTYxOTk3Ml9WNA&add_watermark=true&scene_type=CCM)
 
 ![](https://pcnqdohorvbp.feishu.cn/space/api/box/stream/download/asynccode/?code=NzU3N2UxMTk0YzM5MGZiOWRjMmJlMmY2OTNlN2NmNmFfYnB4dEZMc0dCalVRVnlYZnNJWUxTTkJsQXdRaVQwd0lfVG9rZW46TUtrS2IyOHoyb0N1TXR4TFppdGMzNHh6bkZiXzE3ODE2MTYzNzI6MTc4MTYxOTk3Ml9WNA&add_watermark=true&scene_type=CCM)
-
-  
 
 https://arxiv.org/pdf/2203.15556
 
@@ -653,4 +618,10 @@ https://arxiv.org/pdf/2203.15556
 
 ![](https://pcnqdohorvbp.feishu.cn/space/api/box/stream/download/asynccode/?code=OGYwMjA4NDJlMDhiMjc0MDZlYTk4YTBkN2U1YmU3MjhfdlJCcXlDY2R4WHdOZVhIREJtalEwc1ZNazgxVVg1VUhfVG9rZW46QUV6WGI0czN3bzVQanR4a3h5T2MzRnNWblBYXzE3ODE2MTYzNzI6MTc4MTYxOTk3Ml9WNA&add_watermark=true&scene_type=CCM)
 
-中间矩阵，$$512 \times 2$$中的2代表`context-length`,比如“苹果”二字这是你的新*仓库*。
+中间矩阵，
+
+$$
+512 \times 2
+$$
+
+中的2代表 `context-length`,比如“苹果”二字这是你的新*仓库*。

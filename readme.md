@@ -18,9 +18,10 @@
 .
 ├── config/_default/          # Hugo 站点配置、菜单、主题参数、语言配置
 ├── content/
-│   ├── homepage/             # 首页组件内容：About、Posts、Projects 等
-│   ├── posts/                # 技术博客文章
-│   ├── Projects/             # 项目/文档型内容
+│   ├── homepage/             # 首页组件内容：About、Posts、Notes 等
+│   ├── posts/                # 阶段性博客文章，当前预留
+│   ├── notes/                # 长期维护的技术笔记/知识库
+│   ├── Projects/             # 项目作品入口
 │   ├── details/              # 个人详情页
 │   └── authors/              # 作者信息
 ├── static/                   # 原样拷贝到站点根目录的静态资源
@@ -66,6 +67,8 @@ hugo --minify
 
 ### 新增博客文章
 
+`content/posts/` 预留给有时间属性的博客文章，例如阶段性总结、踩坑复盘、观点文章。长期维护的技术文档建议放在 `content/notes/`。
+
 推荐使用 Hugo 命令创建文章：
 
 ```bash
@@ -107,13 +110,43 @@ categories:
 
 `draft: true` 的文章只会在 `hugo server -D` 或带草稿参数构建时显示；发布文章时改成 `draft: false`。
 
+### 新增技术笔记
+
+长期维护的系统性技术文档放在 `content/notes/`。当前笔记按主题分组：
+
+```text
+content/notes/
+├── llm/          # LLM、Agent、模型微调
+├── frontend/     # React、V8、浏览器/前端相关
+├── backend/      # Node.js、服务端相关
+└── site/         # Hugo、博客维护相关
+```
+
+例如 LLM 相关笔记位于：
+
+```text
+content/notes/llm/
+├── _index.md
+├── overview/
+├── agent/
+└── fine-tuning/
+```
+
+推荐每篇笔记继续使用 Hugo leaf bundle 结构：
+
+```text
+content/notes/llm/my-note/
+├── index.md
+└── images/
+```
+
 ### 修改首页
 
 首页内容位于 `content/homepage/`：
 
 - `about.md`：个人介绍、头像、社交链接、教育经历、工作经历、论文
-- `pages.md`：首页展示的最新文章
-- `projects.md`：首页项目/经历区块
+- `pages.md`：首页展示的最新文章，目前设为 draft，等有真正博客文章时再启用
+- `notes.md`：首页展示的技术笔记
 - `vintage.md`：主题附带的视觉区块
 
 ### 修改导航
@@ -121,7 +154,7 @@ categories:
 导航菜单在 `config/_default/menus.yaml` 中维护，目前包含：
 
 - Details
-- Posts
+- Notes
 - Projects
 
 ### 修改站点信息

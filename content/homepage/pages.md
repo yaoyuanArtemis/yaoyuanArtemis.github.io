@@ -1,6 +1,6 @@
 ---
 title: Posts
-draft: false
+draft: true
 # Section you want to display
 section: posts
 # Pages count
