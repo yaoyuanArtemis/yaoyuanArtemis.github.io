@@ -1,41 +1,23 @@
 ---
 title: Projects
 draft: false
-experiences:
-  - title: Projects 1
-    organization:
-      name: Example Organization 1
-      url: https://example.org
-    dates: "2019 - Present"
-    location: Country
-    writeup: >
-      Donec scelerisque egestas augue at tempor. Fusce faucibus magna in.
-
-      - Suspendisse lacinia mauris a laoreet vehicula.
-
-      - Aenean tincidunt enim vitae ante blandit tempor.
-
-      - Nam tincidunt diam quis lorem rutrum ullamcorper.
-
-  - title: Projects 2
-    organization:
-      name: Example Organization 2
-      url: https://example.org
-    dates: "2017 - 2019"
-    location: Country
-    writeup: >
-      **Aliquam** at **rutrum** ante. In sed quam faucibus.
+# Section you want to display
+section: Projects/llm
+# Pages count
+count: 3
+# Options: card, plain and masonry.
+style: plain
 
 weight: 3
 widget:
-  handler: experience
+  handler: pages
 
   # Options: sm, md, lg and xl. Default is md.
   width: lg
 
   sidebar:
     # Options: left and right. Leave blank to hide.
-    position: left
+    position:
     # Options: sm, md, lg and xl. Default is md.
     scale:
 
