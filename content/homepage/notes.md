@@ -13,7 +13,7 @@ widget:
   handler: pages
 
   # Options: sm, md, lg and xl. Default is md.
-  width: lg
+  width:
 
   sidebar:
     # Options: left and right. Leave blank to hide.
