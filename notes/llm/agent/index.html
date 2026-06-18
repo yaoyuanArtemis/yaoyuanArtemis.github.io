@@ -1,0 +1,1051 @@
+<!doctype html><html lang=en dir=ltr><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>LLM-Agent | Yaoyuan</title><meta name=generator content="Hugo Eureka 0.9.3"><link rel=stylesheet href=https://yaoyuanArtemis.github.io/css/eureka.min.9cec6350e37e534b0338fa9a085bf06855de3b0f2dcf857e792e5e97b07ea905d4d5513db554cbc26a9c3da622bae92d.css><script defer src=https://yaoyuanArtemis.github.io/js/eureka.min.fa9a6bf6d7a50bb635b4cca7d2ba5cf3dfb095ae3798773f1328f7950028b48c17d06276594e1b5f244a25a6c969a705.js></script>
+<link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=preload href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" as=style onload='this.onload=null,this.rel="stylesheet"'><link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/base16/solarized-light.min.css media=print onload='this.media="all",this.onload=null' crossorigin><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js crossorigin></script>
+<link rel=stylesheet href=https://yaoyuanArtemis.github.io/css/highlightjs.min.2958991528e43eb6fc9b8c4f2b8e052f79c4010718e1d1e888a777620e9ee63021c2c57ec7417a3108019bb8c41943e6.css media=print onload='this.media="all",this.onload=null'><script defer type=text/javascript src=https://yaoyuanArtemis.github.io/js/fontawesome.min.43188b2fd13c27dbb34eb32b5138ddb548a5804f430376f50f0ee994d02357ea9c4f3f1380a0d928b702dc2004164443.js></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ media=print onload='this.media="all",this.onload=null' crossorigin><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin></script>
+<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script><script defer src=https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js integrity=sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0 crossorigin></script>
+<link rel=icon type=image/png sizes=32x32 href=https://yaoyuanArtemis.github.io/images/myfavicon_hud6c546da6628cbefc26d0dcf6f7d248a_1476490_32x32_fill_box_center_3.png><link rel=apple-touch-icon sizes=180x180 href=https://yaoyuanArtemis.github.io/images/myfavicon_hud6c546da6628cbefc26d0dcf6f7d248a_1476490_180x180_fill_box_center_3.png><meta name=description content="LLM基础篇总结"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Notes","item":"https://yaoyuanArtemis.github.io/notes/"},{"@type":"ListItem","position":2,"name":"LLM Notes","item":"https://yaoyuanArtemis.github.io/notes/llm/"},{"@type":"ListItem","position":3,"name":"LLM-Agent","item":"https://yaoyuanArtemis.github.io/notes/llm/agent/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://yaoyuanArtemis.github.io/notes/llm/agent/"},"headline":"LLM-Agent | Yaoyuan","datePublished":"2025-09-04T13:11:22+08:00","dateModified":"2025-09-04T13:11:22+08:00","wordCount":2482,"author":{"@type":"Person","name":["example-author"]},"publisher":{"@type":"Person","name":"Yaoyuan","logo":{"@type":"ImageObject","url":"https://yaoyuanArtemis.github.io/images/myfavicon.png"}},"description":"LLM基础篇总结"}</script><meta property="og:title" content="LLM-Agent | Yaoyuan"><meta property="og:type" content="article"><meta property="og:image" content="https://yaoyuanArtemis.github.io/images/myfavicon.png"><meta property="og:url" content="https://yaoyuanArtemis.github.io/notes/llm/agent/"><meta property="og:description" content="LLM基础篇总结"><meta property="og:locale" content="en"><meta property="og:site_name" content="Yaoyuan"><meta property="article:published_time" content="2025-09-04T13:11:22+08:00"><meta property="article:modified_time" content="2025-09-04T13:11:22+08:00"><meta property="article:section" content="notes"><meta property="article:tag" content="LLM"><meta property="article:tag" content="人工智能"><meta property="article:tag" content="agent"><meta property="og:see_also" content="https://yaoyuanArtemis.github.io/notes/llm/fine-tuning/"><meta property="og:see_also" content="https://yaoyuanArtemis.github.io/notes/llm/overview/"><body class="flex min-h-screen flex-col"><header class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"><div class="mx-auto w-full max-w-screen-xl"><script>let storageColorScheme=localStorage.getItem("lightDarkMode");((storageColorScheme=="Auto"||storageColorScheme==null)&&window.matchMedia("(prefers-color-scheme: dark)").matches||storageColorScheme=="Dark")&&document.getElementsByTagName("html")[0].classList.add("dark")</script><nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0"><a href=/ class="me-6 text-primary-text text-xl font-bold">Yaoyuan</a>
+<button id=navbar-btn class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+<i class="fas fa-bars"></i></button><div id=target class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20"><div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0"><a href=/details/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent me-4">Details</a>
+<a href=/posts/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent me-4">Posts</a>
+<a href=/notes/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 selected-menu-item me-4">Notes</a>
+<a href=/projects/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent me-4">Projects</a></div><div class=flex><div class="relative pt-4 md:pt-0"><div class="cursor-pointer hover:text-eureka" id=lightDarkMode><i class="fas fa-adjust"></i></div><div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id=is-open></div><div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40" id=lightDarkOptions><span class="px-4 py-1 hover:text-eureka" name=Light>Light</span>
+<span class="px-4 py-1 hover:text-eureka" name=Dark>Dark</span>
+<span class="px-4 py-1 hover:text-eureka" name=Auto>Auto</span></div></div></div></div><div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id=is-open-mobile></div></nav><script>let element=document.getElementById("lightDarkMode");storageColorScheme==null||storageColorScheme=="Auto"?document.addEventListener("DOMContentLoaded",()=>{window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",switchDarkMode)}):storageColorScheme=="Light"?(element.firstElementChild.classList.remove("fa-adjust"),element.firstElementChild.setAttribute("data-icon","sun"),element.firstElementChild.classList.add("fa-sun")):storageColorScheme=="Dark"&&(element.firstElementChild.classList.remove("fa-adjust"),element.firstElementChild.setAttribute("data-icon","moon"),element.firstElementChild.classList.add("fa-moon")),document.addEventListener("DOMContentLoaded",()=>{getcolorscheme(),switchBurger()})</script></div></header><main class="grow pt-16"><div class=pl-scrollbar><div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8"><div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12"><div class="bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"><article class=prose><h1 class=mb-4>LLM-Agent</h1><div class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"><div class="me-6 my-2"><i class="fas fa-calendar me-1"></i>
+<span>2025-09-04</span></div><div class="me-6 my-2"><i class="fas fa-clock me-1"></i>
+<span>12 min read</span></div><div class="me-6 my-2"><i class="fas fa-folder me-1"></i>
+<a href=https://yaoyuanArtemis.github.io/categories/llm/ class=hover:text-eureka>LLM</a>
+<span>,</span>
+<a href=https://yaoyuanArtemis.github.io/categories/gpt/ class=hover:text-eureka>GPT</a>
+<span>,</span>
+<a href=https://yaoyuanArtemis.github.io/categories/machine-learning/ class=hover:text-eureka>Machine Learning</a></div></div><h2 id=手写版>手写版</h2><h3 id=目标>目标</h3><p>不依赖框架，实现 The augmented LLM(Chat + MCP + RAG)</p><p>依赖框架：LangChain，LlamaIndex，AutoGen</p><h2 id=框架版>框架版</h2><h3 id=langchain>Langchain</h3><p>Langchian的架构可以分为3层，由底层到高层分别是：</p><p>大模型接入API、工作流API、Agent API</p><p><img src=images/image-10.png alt="Langchain 模块"></p><p><img src=images/image-9.png alt></p><h4 id=langchain搭建过程>Langchain搭建过程</h4><h5 id=接入模型>接入模型</h5><ol><li>下载Langchain</li></ol><pre><code class=language-bash>pip3 install langchain
+</code></pre><p>下载好之后验证langchain版本</p><pre><code class=language-bash>pip3 show langchain
+</code></pre><p><img src=images/image-11.png alt></p><ul><li><p>注册DeepSeek的<strong>API-KEY</strong></p></li><li><p>创建好之后，在.env文件中注册这个DeepSeek的API key</p></li></ul><p><img src=images/image.png alt></p><ul><li>安装 <strong>python-dotenv</strong></li></ul><p>可以让项目能够读取dotenv文件中的项目变量</p><ul><li>验证能不能顺利读取<strong>API-KEY</strong></li></ul><p><img src=images/image-1.png alt></p><ul><li><p>使用OpenAI客户端对话验证DeepSeek</p><pre><code class=language-bash># 初始化OpenAI客户端
+client = OpenAI(api_key=DeepSeek_API_KEY,base_url=&quot;https://api.deepseek.com&quot;)
+# print(DeepSeek_API_KEY)
+
+# 调用DeepSeek API生成回答
+response = client.chat.completions.create(
+    model=&quot;deepseek-chat&quot;,
+    messages=[
+        {&quot;role&quot;:&quot;system&quot;,&quot;content&quot;:&quot;你是陕西西安人，以一个导游的身份介绍西安&quot;},
+        {&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;你好，请介绍自己&quot;},
+    ]
+)
+
+print(response.choices[0].message.content)
+</code></pre></li></ul><p><img src=images/image-2.png alt></p><ul><li><p>安装<strong>langchain-deepseek</strong></p></li><li><p>创建模型对象</p><pre><code class=language-bash># 创建一个模型对象
+from langchain.chat_models import init_chat_model
+
+model = init_chat_model(model=&quot;deepseek-chat&quot;,model_provider=&quot;deepseek&quot;)
+</code></pre></li><li><p>Langchain验证模型调用</p></li><li><p>接入Embedding模型</p></li></ul><p>接Embedding模型推荐使用阿里百炼平台</p><h5 id=搭建chains>搭建Chains</h5><ol><li><p>base chain</p><pre><code class=language-bash>prompt_template = ChatPromptTemplate([(&quot;system&quot;,&quot;你是一个乐于助人的助手&quot;),(&quot;user&quot;,&quot;这是用户的问题：{topic},请用yes或no来回答&quot;)])
+bool_qa_chain = prompt_template | model | BooleanOutputParser()
+
+question = &quot;请问1+1是否大于2?&quot;
+result = bool_qa_chain.invoke(question)
+print(result)
+</code></pre></li><li><p>Chain with schema</p><pre><code class=language-bash>from langchain.output_parsers import ResponseSchema,StructuredOutputParser
+schemas = [
+    ResponseSchema(name=&quot;age&quot;,description=&quot;用户的年龄&quot;),
+    ResponseSchema(name=&quot;name&quot;,description=&quot;用户名称&quot;)
+]
+
+parser = StructuredOutputParser.from_response_schemas(schemas)
+prompt = PromptTemplate.from_template(&quot;请根据以下内容提取用户信息，并返回JSON格式:\n{input}\n\m{format_instructions}&quot;)
+chain = (prompt.partial(format_instructions=parser.get_format_instructions())  | model | parser)
+result = chain.invoke({&quot;input&quot;:&quot;用户叫刘峰&quot;})
+print(result)
+</code></pre></li></ol><p><img src=images/image-3.png alt=JSON结构化输出></p><p>这一点很有意义，可以从输入字段中提取到JSON格式的文字</p><ul><li>Complex chain</li></ul><blockquote><p>需要LLM编一个新闻稿，然后从新闻稿中使用LLM提取出格式化数据📊（JSON：时间、地点、事件）</p></blockquote><p><img src=images/image-4.png alt="Complex Chain"></p><ul><li>list_memory chain</li></ul><p>可以进行对话的机器人</p><pre><code class=language-bash>from langchain_core.messages import AIMessage,HumanMessage,SystemMessage
+from langchain_core.prompts import ChatPromptTemplate,MessagesPlaceholder
+from langchain_core.output_parsers import StrOutputParser
+
+parser = StrOutputParser()
+prompt = ChatPromptTemplate.from_messages(
+    [SystemMessage(content=&quot;你叫小智,是一个AI助手&quot;),MessagesPlaceholder(variable_name=&quot;messages&quot;)])
+chain = prompt | model | parser
+message_list = []
+print(&quot;输入 exit 或 quit 结束对话&quot;)
+
+while True:
+    user_query = input(&quot;你: &quot;)
+    if user_query.lower() in {&quot;exit&quot;,&quot;quit&quot;}:
+        break
+    message_list.append(HumanMessage(content=user_query))
+    assistant_reply = chain.invoke({&quot;messages&quot;:message_list})
+    print(&quot;🤖 小智：&quot;,assistant_reply)
+    message_list.append(AIMessage(content=assistant_reply))
+    if len(message_list) &gt; 50:
+        message_list = message_list[-50]
+</code></pre><h5 id=有前端的chains>有前端的Chains</h5><p>前端框架选择的是基于Python的Gradio</p><pre><code class=language-bash>import gradio as gr
+import os
+from dotenv import load_dotenv
+from openai import OpenAI
+from langchain.chat_models import init_chat_model
+from langchain_core.output_parsers import StrOutputParser
+from langchain.prompts import ChatPromptTemplate
+load_dotenv(override=True)
+
+DeepSeek_API_KEY = os.getenv(&quot;DEEPSEEK_API_KEY&quot;)
+
+# 创建模型部分
+model = init_chat_model(model=&quot;deepseek-chat&quot;,model_provider=&quot;deepseek&quot;)
+system_prompt = ChatPromptTemplate.from_messages([
+    (&quot;system&quot;,&quot;你叫小智，是一名AI助手&quot;),(&quot;human&quot;,&quot;{input}&quot;)])
+qa_chain = system_prompt | model | StrOutputParser()
+res = qa_chain.invoke({&quot;input&quot;:&quot;你是谁&quot;})
+print(res)
+# response函数
+async def chat_response(message,history):
+    partial_message = &quot;&quot;
+    async for chunk in qa_chain.astream({&quot;input&quot;:message}):
+        partial_message += chunk
+        yield partial_message
+
+# 创建前端页面
+def crate_frontend():
+    css = &quot;&quot;&quot;
+    .main-container{
+        max-width:1200px;
+        margin: 0 auto;
+        padding: 20px
+    }
+    .header-text{
+        text-align : center;
+        margin-bottom : 20px
+    }
+    &quot;&quot;&quot;
+    with gr.Blocks(title=&quot;DeepSeek Chat&quot;,css=css) as demo:
+        with gr.Column(elem_classes=[&quot;main-container&quot;]):
+            # 居中显示标题
+            gr.Markdown(
+                &quot;# 🤖高瑜：&quot;,
+                elem_classes=[&quot;header-text&quot;]
+            )
+            gr.Markdown(
+                &quot;流式对话机器人&quot;,
+                elem_classes=[&quot;header-text&quot;]
+            )
+
+            chatbot = gr.Chatbot(
+                height=500,
+                show_copy_button=True,
+                # avatar_images/images=(
+                #     &quot;&quot;
+                # )
+            )
+            with gr.Row():
+                msg = gr.Textbox(
+                    placeholder=&quot;请输入你的问题&quot;,
+                    container=False,
+                    scale=7
+                )
+                submit = gr.Button(
+                    &quot;发送&quot;,
+                    scale=1,
+                    variant=&quot;primary&quot;
+                )
+                clear = gr.Button(
+                    &quot;清空&quot;,
+                    scale=1
+                )
+        async def respond(message,chat_history):
+            if not message.strip():
+                yield &quot;&quot;,chat_history
+                return
+            chat_history = chat_history + [(message,None)]
+            # chat_history.append((message,None))
+            yield &quot;&quot;,chat_history
+
+            async for response_chunk in chat_response(message,chat_history):
+                chat_history[-1] = (message,response_chunk) 
+                yield &quot;&quot;,chat_history
+        
+        def clear_history():
+            return [],&quot;&quot;
+        
+        # msg.submit(respond,[msg,chatbot],[msg,chatbot])
+        submit.click(respond,[msg,chatbot],[msg,chatbot])
+        clear.click(clear_history,outputs=[chatbot,msg])
+    return demo
+
+demo = crate_frontend()
+demo.launch(
+    server_name=&quot;127.0.0.1&quot;,
+    server_port=7860,
+    share=False,
+    debug=True
+)
+</code></pre><p><img src=images/image-5.png alt=Gradio封装的Langchain效果图></p><h5 id=案例调用工具>案例：调用工具</h5><p>LangChain封装了一套自己的工具调用方法</p><ul><li>Chain with Python Interpreter</li></ul><p>场景：把对数据📊、文档📄使用内置的一个Python代码解释器来处理</p><p>将用户的白话进行一连串处理使得可以用一些Python计算库来计算得到答案</p><pre><code class=language-bash>from langchain.output_parsers.boolean import BooleanOutputParser
+from langchain.prompts import ChatPromptTemplate,PromptTemplate
+from langchain.chat_models import init_chat_model
+from langchain_experimental.tools import PythonAstREPLTool
+import os
+from dotenv import load_dotenv
+import pandas as pd
+load_dotenv(override=True)
+
+# 加载模型API_KEY
+DeepSeek_API_KEY = os.getenv(&quot;DEEPSEEK_API_KEY&quot;)
+model = init_chat_model(model=&quot;deepseek-chat&quot;,model_provider=&quot;deepseek&quot;)
+df = pd.read_csv(&quot;./data/WA_Fn-UseC_-Telco-Customer-Churn.csv&quot;)
+# pd.set_option(&quot;max_colwidth&quot;,200)
+# print(dataset.head(5))
+
+# 使用Python解释器
+tool = PythonAstREPLTool(locals={&quot;df&quot;:df})
+# res = tool.invoke(&quot;df['SeniorCitizen'].mean()&quot;)
+# print(res)
+llm_with_tools = model.bind_tools([tool])
+# res = llm_with_tools.invoke(
+#     '我有一张表，名为df，请帮我计算SeniorCitizen字段的均值'
+# )
+# print(res)
+
+# 结果解析器提取Python代码
+from langchain_core.output_parsers.openai_tools import JsonOutputKeyToolsParser
+parser = JsonOutputKeyToolsParser(key_name=tool.name,first_tool_only=True)
+llm_chain = llm_with_tools | parser
+
+system = &quot;&quot;&quot;
+ 你可以访问一个名为pandas的数据框,你可以使用df.head().to_markdown()查看数据集的基本信息,请根据用户提出的问题,编写Python代码来回答。只返回代码，不返回其他内容。只允许使用pandas和内置库
+&quot;&quot;&quot;
+
+prompt = ChatPromptTemplate([
+    ('system',system),
+    ('user',&quot;{question}&quot;)
+])
+
+full_chain = prompt | llm_with_tools | parser | tool
+res = full_chain.invoke({&quot;question&quot;:&quot;请帮我计算SeniorCitizen字段的均值&quot;})
+# print(res)
+res2 = full_chain.invoke({&quot;question&quot;:&quot;请帮我分析gender,SeniorCitizen字段之间的相关关系&quot;})
+print(res2)
+
+# 增加打印结果节点
+from langchain_core.runnables import RunnableLambda
+def code_print(res):
+    print(&quot;即将运行Python代码&quot;,res['query'])
+    return res
+
+print_node = RunnableLambda(code_print)
+full_chain_with_print = prompt | llm_with_tools | parser | print_node | tool 
+full_chain_with_print.invoke({&quot;question&quot;:&quot;请帮我分析gender,SeniorCitizen字段之间的相关关系&quot;})
+</code></pre><p><img src=images/image-6.png alt=将问题转换为代码执行的agent></p><ul><li>Chain with external function tools</li></ul><p>场景：搭建一条chain，使得能够进行天气查询</p><p>通常需要访问外部数据，那么需要提前谁知好<strong>API_KEY</strong></p><p><img src=images/image-8.png alt></p><h5 id=agent-based-chain>Agent based chain</h5><p>更高层的封装</p><p><img src=images/image-7.png alt></p><pre><code class=language-bash># 创建agent以及运行AgentExecutor
+from langchain.agents import create_tool_calling_agent
+tools = [get_weather]
+prompt_agent = ChatPromptTemplate.from_messages([
+    (&quot;system&quot;,&quot;你是天气助手，协助用户给出相应天气信息&quot;),
+    (&quot;human&quot;,&quot;{input}&quot;),
+    (&quot;placeholder&quot;,&quot;{agent_scratchpad}&quot;)
+])
+agent = create_tool_calling_agent(model,tools,prompt=prompt_agent)
+from langchain.agents import AgentExecutor
+agent_exeutor = AgentExecutor(agent=agent,tools=tools,verbose=True)
+response = agent_exeutor.invoke({&quot;input&quot;:&quot;请问今天西安的天气怎么样&quot;})
+print(response)
+</code></pre><h5 id=案例agent-浏览器自动化爬虫>案例：Agent 浏览器自动化爬虫</h5><p>使用playwrite</p><pre><code class=language-bash>pip3 install playwright beautifulsoup4 reportlab lxml
+
+playwright install // 安装虚拟浏览器内核
+</code></pre><pre><code class=language-bash>from langchain_community.agent_toolkits import PlayWrightBrowserToolkit
+from langchain_community.tools.playwright.utils import create_sync_playwright_browser
+from langchain import hub
+from langchain.agents import AgentExecutor,create_openai_tools_agent
+from langchain.chat_models import init_chat_model
+import os
+from dotenv import load_dotenv
+load_dotenv(override=True)
+
+DeepSeek_API_KEY = os.getenv(&quot;DEEPSEEK_API_KEY&quot;)
+
+## 初始化playwright浏览器
+sync_playwright = create_sync_playwright_browser()
+toolkit = PlayWrightBrowserToolkit.from_browser(sync_playwright)
+tools = toolkit.get_tools()
+
+## 拉提示词模版
+prompt = hub.pull(&quot;hwchase17/openai-tools-agent&quot;)
+
+model = init_chat_model(&quot;deepseek-chat&quot;,model_provider=&quot;deepseek&quot;)
+
+agent = create_openai_tools_agent(model,tools=tools,prompt=prompt)
+
+agent_executor = AgentExecutor(agent=agent,tools=tools,verbose=True)
+
+if __name__ == &quot;__main__&quot;:
+    command = {
+        &quot;input&quot;:&quot;访问这个网站 https://yaoyuanartemis.github.io/ 并总结内容&quot;
+    }
+    response = agent_executor.invoke(command)
+    print(response)
+</code></pre><h5 id=案例接入mcp>案例：接入MCP</h5><p>接入MCP的方式有两种：</p><ul><li><p>Function calling</p></li><li><p>langchain</p></li></ul><p>使用Langchain是Function Caling的重写。两者都是对调度文件的表示</p><p>优点：</p><p>代码量减少很多</p><pre><code class=language-bash>&quot;&quot;&quot;
+多服务器 MCP + LangChain Agent 示例
+---------------------------------
+1. 读取 .env 中的 LLM_API_KEY / BASE_URL / MODEL
+2. 读取 servers_config.json 中的 MCP 服务器信息
+3. 启动 MCP 服务器（支持多个）
+4. 将所有工具注入 LangChain Agent，由大模型自动选择并调用
+&quot;&quot;&quot;
+ 
+import asyncio
+import json
+import logging
+import os
+from typing import Any, Dict, List
+ 
+from dotenv import load_dotenv
+from langchain import hub
+from langchain.agents import AgentExecutor, create_openai_tools_agent
+from langchain.chat_models import init_chat_model
+from langchain_mcp_adapters.client import MultiServerMCPClient
+from langchain_mcp_adapters.tools import load_mcp_tools
+ 
+# ────────────────────────────
+# 环境配置
+# ────────────────────────────
+ 
+class Configuration:
+    &quot;&quot;&quot;读取 .env 与 servers_config.json&quot;&quot;&quot;
+ 
+    def __init__(self) -&gt; None:
+        load_dotenv()
+        self.api_key: str = os.getenv(&quot;LLM_API_KEY&quot;) or &quot;&quot;
+        self.base_url: str | None = os.getenv(&quot;BASE_URL&quot;)  # DeepSeek 用 https://api.deepseek.com
+        self.model: str = os.getenv(&quot;MODEL&quot;) or &quot;deepseek-chat&quot;
+        if not self.api_key:
+            raise ValueError(&quot;❌ 未找到 LLM_API_KEY，请在 .env 中配置&quot;)
+ 
+    @staticmethod
+    def load_servers(file_path: str = &quot;servers_config.json&quot;) -&gt; Dict[str, Any]:
+        with open(file_path, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:
+            return json.load(f).get(&quot;mcpServers&quot;, {})
+ 
+# ────────────────────────────
+# 主逻辑
+# ────────────────────────────
+async def run_chat_loop() -&gt; None:
+    &quot;&quot;&quot;启动 MCP-Agent 聊天循环&quot;&quot;&quot;
+    cfg = Configuration()
+    os.environ[&quot;DEEPSEEK_API_KEY&quot;] = os.getenv(&quot;LLM_API_KEY&quot;, &quot;&quot;)
+    if cfg.base_url:
+        os.environ[&quot;DEEPSEEK_API_BASE&quot;] = cfg.base_url
+    servers_cfg = Configuration.load_servers()
+ 
+    # 把 key 注入环境，LangChain-OpenAI / DeepSeek 会自动读取
+    os.environ[&quot;OPENAI_API_KEY&quot;] = cfg.api_key
+    if cfg.base_url:  # 对 DeepSeek 之类的自定义域名很有用
+        os.environ[&quot;OPENAI_BASE_URL&quot;] = cfg.base_url
+ 
+    # 1️⃣ 连接多台 MCP 服务器
+    mcp_client = MultiServerMCPClient(servers_cfg)
+ 
+    tools = await mcp_client.get_tools()         # LangChain Tool 对象列表
+ 
+    logging.info(f&quot;✅ 已加载 {len(tools)} 个 MCP 工具： {[t.name for t in tools]}&quot;)
+ 
+    # 2️⃣ 初始化大模型（DeepSeek / OpenAI / 任意兼容 OpenAI 协议的模型）
+    llm = init_chat_model(
+        model=cfg.model,
+        model_provider=&quot;deepseek&quot; if &quot;deepseek&quot; in cfg.model else &quot;openai&quot;,
+    )
+ 
+    # 3️⃣ 构造 LangChain Agent（用通用 prompt）
+    prompt = hub.pull(&quot;hwchase17/openai-tools-agent&quot;)
+    agent = create_openai_tools_agent(llm, tools, prompt)
+    agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
+ 
+    # 4️⃣ CLI 聊天
+    print(&quot;\n🤖 MCP Agent 已启动，输入 'quit' 退出&quot;)
+    while True:
+        user_input = input(&quot;\n你: &quot;).strip()
+        if user_input.lower() == &quot;quit&quot;:
+            break
+        try:
+            result = await agent_executor.ainvoke({&quot;input&quot;: user_input})
+            print(f&quot;\nAI: {result['output']}&quot;)
+        except Exception as exc:
+            print(f&quot;\n⚠️  出错: {exc}&quot;)
+ 
+    # 5️⃣ 清理
+    await mcp_client.cleanup()
+    print(&quot;🧹 资源已清理，Bye!&quot;)
+ 
+# ────────────────────────────
+# 入口
+# ────────────────────────────
+if __name__ == &quot;__main__&quot;:
+    logging.basicConfig(level=logging.INFO, format=&quot;%(asctime)s - %(levelname)s - %(message)s&quot;)
+    asyncio.run(run_chat_loop())
+</code></pre><h5 id=案例rag-with-langchain>案例：RAG with langchain</h5><pre><code class=language-bash>import streamlit as st
+from PyPDF2 import PdfReader
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_core.prompts import ChatPromptTemplate
+from langchain.tools.retriever import create_retriever_tool
+from langchain_community.vectorstores import FAISS
+from langchain.agents import AgentExecutor,create_tool_calling_agent
+from langchain_community.embeddings import DashScopeEmbeddings
+from langchain.chat_models import init_chat_model
+import os
+from dotenv import load_dotenv
+
+# 找到上级目录的 .env 文件路径
+from pathlib import Path
+env_path = Path(__file__).resolve().parent.parent / &quot;.env&quot;
+load_dotenv(dotenv_path=env_path,override=True)
+
+DeepSeek_API_KEY=os.getenv(&quot;DEEPSEEK_API_KEY&quot;)
+dashscope_api_key = os.getenv(&quot;DASHSCOPE_API_KEY&quot;)
+ 
+os.environ[&quot;KMP_DUPLICATE_LIB_OK&quot;]=&quot;TRUE&quot;
+ 
+ 
+embeddings = DashScopeEmbeddings(
+    model=&quot;text-embedding-v1&quot;, dashscope_api_key=dashscope_api_key
+)
+ 
+def pdf_read(pdf_doc):
+    text = &quot;&quot;
+    for pdf in pdf_doc:
+        pdf_reader = PdfReader(pdf)
+        for page in pdf_reader.pages:
+            text += page.extract_text()
+    return text
+ 
+ 
+def get_chunks(text):
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+    chunks = text_splitter.split_text(text)
+    return chunks
+ 
+def vector_store(text_chunks):
+    vector_store = FAISS.from_texts(text_chunks, embedding=embeddings)
+    vector_store.save_local(&quot;faiss_db&quot;)
+ 
+def get_conversational_chain(tools, ques):
+    llm = init_chat_model(&quot;deepseek-chat&quot;, model_provider=&quot;deepseek&quot;)
+    prompt = ChatPromptTemplate.from_messages([
+        (
+            &quot;system&quot;,
+            &quot;&quot;&quot;你是AI助手，请根据提供的上下文回答问题，确保提供所有细节，如果答案不在上下文中，请说&quot;答案不在上下文中&quot;，不要提供错误的答案&quot;&quot;&quot;,
+        ),
+        (&quot;placeholder&quot;, &quot;{chat_history}&quot;),
+        (&quot;human&quot;, &quot;{input}&quot;),
+        (&quot;placeholder&quot;, &quot;{agent_scratchpad}&quot;),
+    ])
+     
+    tool = [tools]
+    agent = create_tool_calling_agent(llm, tool, prompt)
+    agent_executor = AgentExecutor(agent=agent, tools=tool, verbose=True)
+     
+    response = agent_executor.invoke({&quot;input&quot;: ques})
+    print(response)
+    st.write(&quot;🤖 回答: &quot;, response['output'])
+ 
+def check_database_exists():
+    &quot;&quot;&quot;检查FAISS数据库是否存在&quot;&quot;&quot;
+    return os.path.exists(&quot;faiss_db&quot;) and os.path.exists(&quot;faiss_db/index.faiss&quot;)
+ 
+def user_input(user_question):
+    # 检查数据库是否存在
+    if not check_database_exists():
+        st.error(&quot;❌ 请先上传PDF文件并点击'Submit &amp; Process'按钮来处理文档！&quot;)
+        st.info(&quot;💡 步骤：1️⃣ 上传PDF → 2️⃣ 点击处理 → 3️⃣ 开始提问&quot;)
+        return
+     
+    try:
+        # 加载FAISS数据库
+        new_db = FAISS.load_local(&quot;faiss_db&quot;, embeddings, allow_dangerous_deserialization=True)
+         
+        retriever = new_db.as_retriever()
+        retrieval_chain = create_retriever_tool(retriever, &quot;pdf_extractor&quot;, &quot;This tool is to give answer to queries from the pdf&quot;)
+        get_conversational_chain(retrieval_chain, user_question)
+         
+    except Exception as e:
+        st.error(f&quot;❌ 加载数据库时出错: {str(e)}&quot;)
+        st.info(&quot;请重新处理PDF文件&quot;)
+ 
+def main():
+    st.set_page_config(&quot;🤖 LangChain B站公开课 By九天Hector&quot;)
+    st.header(&quot;🤖 LangChain B站公开课 By九天Hector&quot;)
+     
+    # 显示数据库状态
+    col1, col2 = st.columns([3, 1])
+     
+    with col1:
+        if check_database_exists():
+           pass
+        else:
+            st.warning(&quot;⚠️ 请先上传并处理PDF文件&quot;)
+     
+    with col2:
+        if st.button(&quot;🗑️ 清除数据库&quot;):
+            try:
+                import shutil
+                if os.path.exists(&quot;faiss_db&quot;):
+                    shutil.rmtree(&quot;faiss_db&quot;)
+                st.success(&quot;数据库已清除&quot;)
+                st.rerun()
+            except Exception as e:
+                st.error(f&quot;清除失败: {e}&quot;)
+ 
+    # 用户问题输入
+    user_question = st.text_input(&quot;💬 请输入问题&quot;, 
+                                  placeholder=&quot;例如：这个文档的主要内容是什么？&quot;,
+                                  disabled=not check_database_exists())
+ 
+    if user_question:
+        if check_database_exists():
+            with st.spinner(&quot;🤔 AI正在分析文档...&quot;):
+                user_input(user_question)
+        else:
+            st.error(&quot;❌ 请先上传并处理PDF文件！&quot;)
+ 
+    # 侧边栏
+    with st.sidebar:
+        st.title(&quot;📁 文档管理&quot;)
+         
+        # 显示当前状态
+        if check_database_exists():
+            st.success(&quot;✅ 数据库状态：已就绪&quot;)
+        else:
+            st.info(&quot;📝 状态：等待上传PDF&quot;)
+         
+        st.markdown(&quot;---&quot;)
+         
+        # 文件上传
+        pdf_doc = st.file_uploader(
+            &quot;📎 上传PDF文件&quot;, 
+            accept_multiple_files=True,
+            type=['pdf'],
+            help=&quot;支持上传多个PDF文件&quot;
+        )
+         
+        if pdf_doc:
+            st.info(f&quot;📄 已选择 {len(pdf_doc)} 个文件&quot;)
+            for i, pdf in enumerate(pdf_doc, 1):
+                st.write(f&quot;{i}. {pdf.name}&quot;)
+         
+        # 处理按钮
+        process_button = st.button(
+            &quot;🚀 提交并处理&quot;, 
+            disabled=not pdf_doc,
+            use_container_width=True
+        )
+         
+        if process_button:
+            if pdf_doc:
+                with st.spinner(&quot;📊 正在处理PDF文件...&quot;):
+                    try:
+                        # 读取PDF内容
+                        raw_text = pdf_read(pdf_doc)
+                         
+                        if not raw_text.strip():
+                            st.error(&quot;❌ 无法从PDF中提取文本，请检查文件是否有效&quot;)
+                            return
+                         
+                        # 分割文本
+                        text_chunks = get_chunks(raw_text)
+                        st.info(f&quot;📝 文本已分割为 {len(text_chunks)} 个片段&quot;)
+                         
+                        # 创建向量数据库
+                        vector_store(text_chunks)
+                         
+                        st.success(&quot;✅ PDF处理完成！现在可以开始提问了&quot;)
+                        st.balloons()
+                        st.rerun()
+                         
+                    except Exception as e:
+                        st.error(f&quot;❌ 处理PDF时出错: {str(e)}&quot;)
+            else:
+                st.warning(&quot;⚠️ 请先选择PDF文件&quot;)
+         
+        # 使用说明
+        with st.expander(&quot;💡 使用说明&quot;):
+            st.markdown(&quot;&quot;&quot;
+            **步骤：**
+            1. 📎 上传一个或多个PDF文件
+            2. 🚀 点击&quot;Submit &amp; Process&quot;处理文档
+            3. 💬 在主页面输入您的问题
+            4. 🤖 AI将基于PDF内容回答问题
+             
+            **提示：**
+            - 支持多个PDF文件同时上传
+            - 处理大文件可能需要一些时间
+            - 可以随时清除数据库重新开始
+            &quot;&quot;&quot;)
+ 
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre><h5 id=案例数据分析agent>案例：数据分析Agent</h5><pre><code class=language-bash>import streamlit as st
+import pandas as pd
+import os
+from PyPDF2 import PdfReader
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_community.vectorstores import FAISS
+from langchain.tools.retriever import create_retriever_tool
+from langchain.agents import AgentExecutor, create_tool_calling_agent
+from langchain_community.embeddings import DashScopeEmbeddings
+from langchain.chat_models import init_chat_model
+from langchain_experimental.tools import PythonAstREPLTool
+import matplotlib
+matplotlib.use('Agg')
+import os
+from dotenv import load_dotenv 
+load_dotenv(override=True)
+ 
+ 
+DeepSeek_API_KEY = os.getenv(&quot;DEEPSEEK_API_KEY&quot;)
+dashscope_api_key = os.getenv(&quot;dashscope_api_key&quot;)
+ 
+# 设置环境变量
+os.environ[&quot;KMP_DUPLICATE_LIB_OK&quot;] = &quot;TRUE&quot;
+ 
+# 页面配置
+st.set_page_config(
+    page_title=&quot;By九天Hector&quot;,
+    page_icon=&quot;🤖&quot;,
+    layout=&quot;wide&quot;,
+    initial_sidebar_state=&quot;expanded&quot;
+)
+ 
+# 自定义CSS样式
+st.markdown(&quot;&quot;&quot;
+&lt;style&gt;
+    /* 主题色彩 */
+    :root {
+        --primary-color: #1f77b4;
+        --secondary-color: #ff7f0e;
+        --success-color: #2ca02c;
+        --warning-color: #ff9800;
+        --error-color: #d62728;
+        --background-color: #f8f9fa;
+    }
+     
+    /* 隐藏默认的Streamlit样式 */
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+     
+    /* 标题样式 */
+    .main-header {
+        background: linear-gradient(90deg, #1f77b4, #ff7f0e);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 3rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+     
+    /* 卡片样式 */
+    .info-card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        margin: 1rem 0;
+        border-left: 4px solid var(--primary-color);
+    }
+     
+    .success-card {
+        background: linear-gradient(135deg, #e8f5e8, #f0f8f0);
+        border-left: 4px solid var(--success-color);
+    }
+     
+    .warning-card {
+        background: linear-gradient(135deg, #fff8e1, #fffbf0);
+        border-left: 4px solid var(--warning-color);
+    }
+     
+    /* 按钮样式 */
+    .stButton &gt; button {
+        background: linear-gradient(45deg, #1f77b4, #2196F3);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 0.5rem 1rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(31, 119, 180, 0.3);
+    }
+     
+    .stButton &gt; button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(31, 119, 180, 0.4);
+    }
+     
+    /* Tab样式 */
+    .stTabs [data-baseweb=&quot;tab-list&quot;] {
+        gap: 8px;
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        padding: 0.5rem;
+    }
+     
+    .stTabs [data-baseweb=&quot;tab&quot;] {
+        height: 60px;
+        background-color: white;
+        border-radius: 8px;
+        padding: 0 24px;
+        font-weight: 600;
+        border: 2px solid transparent;
+        transition: all 0.3s ease;
+    }
+     
+    .stTabs [aria-selected=&quot;true&quot;] {
+        background: linear-gradient(45deg, #1f77b4, #2196F3);
+        color: white !important;
+        border: 2px solid #1f77b4;
+    }
+     
+    /* 侧边栏样式 */
+    .css-1d391kg {
+        background: linear-gradient(180deg, #f8f9fa, #ffffff);
+    }
+     
+    /* 文件上传区域 */
+    .uploadedFile {
+        background: #f8f9fa;
+        border: 2px dashed #1f77b4;
+        border-radius: 10px;
+        padding: 1rem;
+        text-align: center;
+        margin: 1rem 0;
+    }
+     
+    /* 状态指示器 */
+    .status-indicator {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+     
+    .status-ready {
+        background: #e8f5e8;
+        color: #2ca02c;
+        border: 1px solid #2ca02c;
+    }
+     
+    .status-waiting {
+        background: #fff8e1;
+        color: #ff9800;
+        border: 1px solid #ff9800;
+    }
+&lt;/style&gt;
+&quot;&quot;&quot;, unsafe_allow_html=True)
+ 
+# 初始化embeddings
+@st.cache_resource
+def init_embeddings():
+    return DashScopeEmbeddings(
+        model=&quot;text-embedding-v1&quot;, 
+        dashscope_api_key=dashscope_api_key
+    )
+ 
+# 初始化LLM
+@st.cache_resource
+def init_llm():
+    return init_chat_model(&quot;deepseek-chat&quot;, model_provider=&quot;deepseek&quot;)
+ 
+# 初始化会话状态
+def init_session_state():
+    if 'pdf_messages' not in st.session_state:
+        st.session_state.pdf_messages = []
+    if 'csv_messages' not in st.session_state:
+        st.session_state.csv_messages = []
+    if 'df' not in st.session_state:
+        st.session_state.df = None
+ 
+# PDF处理函数
+def pdf_read(pdf_doc):
+    text = &quot;&quot;
+    for pdf in pdf_doc:
+        pdf_reader = PdfReader(pdf)
+        for page in pdf_reader.pages:
+            text += page.extract_text()
+    return text
+ 
+def get_chunks(text):
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+    chunks = text_splitter.split_text(text)
+    return chunks
+ 
+def vector_store(text_chunks):
+    embeddings = init_embeddings()
+    vector_store = FAISS.from_texts(text_chunks, embedding=embeddings)
+    vector_store.save_local(&quot;faiss_db&quot;)
+ 
+def check_database_exists():
+    return os.path.exists(&quot;faiss_db&quot;) and os.path.exists(&quot;faiss_db/index.faiss&quot;)
+ 
+def get_pdf_response(user_question):
+    if not check_database_exists():
+        return &quot;❌ 请先上传PDF文件并点击'Submit &amp; Process'按钮来处理文档！&quot;
+     
+    try:
+        embeddings = init_embeddings()
+        llm = init_llm()
+         
+        new_db = FAISS.load_local(&quot;faiss_db&quot;, embeddings, allow_dangerous_deserialization=True)
+        retriever = new_db.as_retriever()
+         
+        prompt = ChatPromptTemplate.from_messages([
+            (&quot;system&quot;, &quot;&quot;&quot;你是AI助手，请根据提供的上下文回答问题，确保提供所有细节，如果答案不在上下文中，请说&quot;答案不在上下文中&quot;，不要提供错误的答案&quot;&quot;&quot;),
+            (&quot;placeholder&quot;, &quot;{chat_history}&quot;),
+            (&quot;human&quot;, &quot;{input}&quot;),
+            (&quot;placeholder&quot;, &quot;{agent_scratchpad}&quot;),
+        ])
+         
+        retrieval_chain = create_retriever_tool(retriever, &quot;pdf_extractor&quot;, &quot;This tool is to give answer to queries from the pdf&quot;)
+        agent = create_tool_calling_agent(llm, [retrieval_chain], prompt)
+        agent_executor = AgentExecutor(agent=agent, tools=[retrieval_chain], verbose=True)
+         
+        response = agent_executor.invoke({&quot;input&quot;: user_question})
+        return response['output']
+         
+    except Exception as e:
+        return f&quot;❌ 处理问题时出错: {str(e)}&quot;
+ 
+# CSV处理函数
+def get_csv_response(query: str) -&gt; str:
+    if st.session_state.df is None:
+        return &quot;请先上传CSV文件&quot;
+     
+    llm = init_llm()
+    locals_dict = {'df': st.session_state.df}
+    tools = [PythonAstREPLTool(locals=locals_dict)]
+     
+    system = f&quot;&quot;&quot;Given a pandas dataframe `df` answer user's query.
+    Here's the output of `df.head().to_markdown()` for your reference, you have access to full dataframe as `df`:
+    ```
+    {st.session_state.df.head().to_markdown()}
+    ```
+    Give final answer as soon as you have enough data, otherwise generate code using `df` and call required tool.
+    If user asks you to make a graph, save it as `plot.png`, and output GRAPH:&lt;graph title&gt;.
+    Example:
+    ```
+    plt.hist(df['Age'])
+    plt.xlabel('Age')
+    plt.ylabel('Count')
+    plt.title('Age Histogram')
+    plt.savefig('plot.png')
+    ``` output: GRAPH:Age histogram
+    Query:&quot;&quot;&quot;
+ 
+    prompt = ChatPromptTemplate.from_messages([
+        (&quot;system&quot;, system),
+        (&quot;placeholder&quot;, &quot;{chat_history}&quot;),
+        (&quot;human&quot;, &quot;{input}&quot;),
+        (&quot;placeholder&quot;, &quot;{agent_scratchpad}&quot;),
+    ])
+ 
+    agent = create_tool_calling_agent(llm=llm, tools=tools, prompt=prompt)
+    agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
+     
+    return agent_executor.invoke({&quot;input&quot;: query})['output']
+ 
+def main():
+    init_session_state()
+     
+    # 主标题
+    st.markdown('&lt;h1 class=&quot;main-header&quot;&gt;🤖 LangChain B站公开课 By九天Hector&lt;/h1&gt;', unsafe_allow_html=True)
+    st.markdown('&lt;div style=&quot;text-align: center; margin-bottom: 2rem; color: #666;&quot;&gt;集PDF问答与数据分析于一体的智能助手&lt;/div&gt;', unsafe_allow_html=True)
+     
+    # 创建两个主要功能的标签页
+    tab1, tab2 = st.tabs([&quot;📄 PDF智能问答&quot;, &quot;📊 CSV数据分析&quot;])
+     
+    # PDF问答模块
+    with tab1:
+        col1, col2 = st.columns([2, 1])
+         
+        with col1:
+            st.markdown(&quot;### 💬 与PDF文档对话&quot;)
+             
+            # 显示数据库状态
+            if check_database_exists():
+                st.markdown('&lt;div class=&quot;info-card success-card&quot;&gt;&lt;span class=&quot;status-indicator status-ready&quot;&gt;✅ PDF数据库已准备就绪&lt;/span&gt;&lt;/div&gt;', unsafe_allow_html=True)
+            else:
+                st.markdown('&lt;div class=&quot;info-card warning-card&quot;&gt;&lt;span class=&quot;status-indicator status-waiting&quot;&gt;⚠️ 请先上传并处理PDF文件&lt;/span&gt;&lt;/div&gt;', unsafe_allow_html=True)
+             
+            # 聊天界面
+            for message in st.session_state.pdf_messages:
+                with st.chat_message(message[&quot;role&quot;]):
+                    st.markdown(message[&quot;content&quot;])
+             
+            # 用户输入
+            if pdf_query := st.chat_input(&quot;💭 向PDF提问...&quot;, disabled=not check_database_exists()):
+                st.session_state.pdf_messages.append({&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: pdf_query})
+                with st.chat_message(&quot;user&quot;):
+                    st.markdown(pdf_query)
+                 
+                with st.chat_message(&quot;assistant&quot;):
+                    with st.spinner(&quot;🤔 AI正在分析文档...&quot;):
+                        response = get_pdf_response(pdf_query)
+                    st.markdown(response)
+                    st.session_state.pdf_messages.append({&quot;role&quot;: &quot;assistant&quot;, &quot;content&quot;: response})
+         
+        with col2:
+            st.markdown(&quot;### 📁 文档管理&quot;)
+             
+            # 文件上传
+            pdf_docs = st.file_uploader(
+                &quot;📎 上传PDF文件&quot;,
+                accept_multiple_files=True,
+                type=['pdf'],
+                help=&quot;支持上传多个PDF文件&quot;
+            )
+             
+            if pdf_docs:
+                st.success(f&quot;📄 已选择 {len(pdf_docs)} 个文件&quot;)
+                for i, pdf in enumerate(pdf_docs, 1):
+                    st.write(f&quot;• {pdf.name}&quot;)
+             
+            # 处理按钮
+            if st.button(&quot;🚀 上传并处理PDF文档&quot;, disabled=not pdf_docs, use_container_width=True):
+                with st.spinner(&quot;📊 正在处理PDF文件...&quot;):
+                    try:
+                        raw_text = pdf_read(pdf_docs)
+                        if not raw_text.strip():
+                            st.error(&quot;❌ 无法从PDF中提取文本&quot;)
+                            return
+                         
+                        text_chunks = get_chunks(raw_text)
+                        st.info(f&quot;📝 文本已分割为 {len(text_chunks)} 个片段&quot;)
+                         
+                        vector_store(text_chunks)
+                        st.success(&quot;✅ PDF处理完成！&quot;)
+                        st.balloons()
+                        st.rerun()
+                         
+                    except Exception as e:
+                        st.error(f&quot;❌ 处理PDF时出错: {str(e)}&quot;)
+             
+            # 清除数据库
+            if st.button(&quot;🗑️ 清除PDF数据库&quot;, use_container_width=True):
+                try:
+                    import shutil
+                    if os.path.exists(&quot;faiss_db&quot;):
+                        shutil.rmtree(&quot;faiss_db&quot;)
+                    st.session_state.pdf_messages = []
+                    st.success(&quot;数据库已清除&quot;)
+                    st.rerun()
+                except Exception as e:
+                    st.error(f&quot;清除失败: {e}&quot;)
+     
+    # CSV数据分析模块
+    with tab2:
+        col1, col2 = st.columns([2, 1])
+         
+        with col1:
+            st.markdown(&quot;### 📈 数据分析对话&quot;)
+             
+            # 显示数据状态
+            if st.session_state.df is not None:
+                st.markdown('&lt;div class=&quot;info-card success-card&quot;&gt;&lt;span class=&quot;status-indicator status-ready&quot;&gt;✅ 数据已加载完成&lt;/span&gt;&lt;/div&gt;', unsafe_allow_html=True)
+            else:
+                st.markdown('&lt;div class=&quot;info-card warning-card&quot;&gt;&lt;span class=&quot;status-indicator status-waiting&quot;&gt;⚠️ 请先上传CSV文件&lt;/span&gt;&lt;/div&gt;', unsafe_allow_html=True)
+             
+            # 聊天界面
+            for message in st.session_state.csv_messages:
+                with st.chat_message(message[&quot;role&quot;]):
+                    if message[&quot;type&quot;] == &quot;dataframe&quot;:
+                        st.dataframe(message[&quot;content&quot;])
+                    elif message[&quot;type&quot;] == &quot;images/image&quot;:
+                        st.write(message[&quot;content&quot;])
+                        if os.path.exists('plot.png'):
+                            st.images/image('plot.png')
+                    else:
+                        st.markdown(message[&quot;content&quot;])
+             
+            # 用户输入
+            if csv_query := st.chat_input(&quot;📊 分析数据...&quot;, disabled=st.session_state.df is None):
+                st.session_state.csv_messages.append({&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: csv_query, &quot;type&quot;: &quot;text&quot;})
+                with st.chat_message(&quot;user&quot;):
+                    st.markdown(csv_query)
+                 
+                with st.chat_message(&quot;assistant&quot;):
+                    with st.spinner(&quot;🔄 正在分析数据...&quot;):
+                        response = get_csv_response(csv_query)
+                     
+                    if isinstance(response, pd.DataFrame):
+                        st.dataframe(response)
+                        st.session_state.csv_messages.append({&quot;role&quot;: &quot;assistant&quot;, &quot;content&quot;: response, &quot;type&quot;: &quot;dataframe&quot;})
+                    elif &quot;GRAPH&quot; in str(response):
+                        text = str(response)[str(response).find(&quot;GRAPH&quot;)+6:]
+                        st.write(text)
+                        if os.path.exists('plot.png'):
+                            st.images/image('plot.png')
+                        st.session_state.csv_messages.append({&quot;role&quot;: &quot;assistant&quot;, &quot;content&quot;: text, &quot;type&quot;: &quot;images/image&quot;})
+                    else:
+                        st.markdown(response)
+                        st.session_state.csv_messages.append({&quot;role&quot;: &quot;assistant&quot;, &quot;content&quot;: response, &quot;type&quot;: &quot;text&quot;})
+         
+        with col2:
+            st.markdown(&quot;### 📊 数据管理&quot;)
+             
+            # CSV文件上传
+            csv_file = st.file_uploader(&quot;📈 上传CSV文件&quot;, type='csv')
+            if csv_file:
+                st.session_state.df = pd.read_csv(csv_file)
+                st.success(f&quot;✅ 数据加载成功!&quot;)
+                 
+                # 显示数据预览
+                with st.expander(&quot;👀 数据预览&quot;, expanded=True):
+                    st.dataframe(st.session_state.df.head())
+                    st.write(f&quot;📏 数据维度: {st.session_state.df.shape[0]} 行 × {st.session_state.df.shape[1]} 列&quot;)
+             
+            # 数据信息
+            if st.session_state.df is not None:
+                if st.button(&quot;📋 显示数据信息&quot;, use_container_width=True):
+                    with st.expander(&quot;📊 数据统计信息&quot;, expanded=True):
+                        st.write(&quot;**基本信息:**&quot;)
+                        st.text(f&quot;行数: {st.session_state.df.shape[0]}&quot;)
+                        st.text(f&quot;列数: {st.session_state.df.shape[1]}&quot;)
+                        st.write(&quot;**列名:**&quot;)
+                        st.write(list(st.session_state.df.columns))
+                        st.write(&quot;**数据类型:**&quot;)
+                        # 修复：将dtypes转换为字符串格式显示
+                        dtype_info = pd.DataFrame({
+                            '列名': st.session_state.df.columns,
+                            '数据类型': [str(dtype) for dtype in st.session_state.df.dtypes]
+                        })
+                        st.dataframe(dtype_info, use_container_width=True)
+             
+            # 清除数据
+            if st.button(&quot;🗑️ 清除CSV数据&quot;, use_container_width=True):
+                st.session_state.df = None
+                st.session_state.csv_messages = []
+                if os.path.exists('plot.png'):
+                    os.remove('plot.png')
+                st.success(&quot;数据已清除&quot;)
+                st.rerun()
+     
+    # 底部信息
+    st.markdown(&quot;---&quot;)
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.markdown(&quot;**🔧 技术栈:**&quot;)
+        st.markdown(&quot;• LangChain • Streamlit • FAISS • DeepSeek&quot;)
+    with col2:
+        st.markdown(&quot;**✨ 功能特色:**&quot;)
+        st.markdown(&quot;• PDF智能问答 • 数据可视化分析&quot;)
+    with col3:
+        st.markdown(&quot;**💡 使用提示:**&quot;)
+        st.markdown(&quot;• 支持多文件上传 • 实时对话交互&quot;)
+ 
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre><h3 id=langgraphx20>Langgraph</h3><p>其实很简单，工作流图形化，或者说对Langchain的封装。也是Langchain家族最核心的Multi-Agent框架</p><h3 id=langsmith>LangSmith</h3><p>对Langchain生态Agent进行实时监控</p><h3 id=langflow>LangFlow</h3><p><em><strong>低代码</strong></em>工作流开发框架</p><p>同类竞品：Coze，Dify，n8n</p></article><div class=my-4><a href=https://yaoyuanArtemis.github.io/tags/llm/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#LLM</a>
+<a href=https://yaoyuanArtemis.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#人工智能</a>
+<a href=https://yaoyuanArtemis.github.io/tags/agent/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#agent</a></div><div class=py-2><div class="my-8 flex flex-col items-center md:flex-row"><a href=https://yaoyuanArtemis.github.io/authors/example-author/ class="md:me-4 text-primary-text h-24 w-24"><img src=https://raw.githubusercontent.com/yaoyuanArtemis/imgages/main/avatar.png class="bg-primary-bg w-full rounded-full" alt=Avatar></a><div class="mt-4 w-full md:mt-0 md:w-auto"><a href=https://yaoyuanArtemis.github.io/authors/example-author/ class="mb-2 block border-b pb-1 text-lg font-bold"><h3>Liu Feng</h3></a><span class="block pb-2">Aenean vel bibendum quam. Aliquam at mollis quam. Proin efficitur.</span>
+<a href=yaoyuan.lf@gmail.com class=me-2><i class="fas fa-envelope"></i></a>
+<a href="https://scholar.google.com/citations?user=0O_0fFAAAAAJ" class=me-2><i class="fab fa-google"></i></a>
+<a href=https://github.com/yaoyuanArtemis class=me-2><i class="fab fa-github"></i></a>
+<a href=public/images/resume.pdf class=me-2><i class="fas fa-file-pdf"></i></a></div></div></div><div class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"><div></div><div class="mt-4 md:mt-0 md:text-right"><span class="text-primary-text block font-bold">Next</span>
+<a href=https://yaoyuanArtemis.github.io/notes/llm/fine-tuning/ class=block>LLM - 模型微调</a></div></div></div><div class=col-span-2><div class="bg-primary-bg
+prose sticky top-16 z-10 hidden px-6 py-4 lg:block"><h3>On This Page</h3></div><div class="sticky-toc hidden px-6 pb-6 lg:block"><nav id=TableOfContents><ul><li><a href=#手写版>手写版</a><ul><li><a href=#目标>目标</a></li></ul></li><li><a href=#框架版>框架版</a><ul><li><a href=#langchain>Langchain</a><ul><li><a href=#langchain搭建过程>Langchain搭建过程</a><ul><li><a href=#接入模型>接入模型</a></li><li><a href=#搭建chains>搭建Chains</a></li><li><a href=#有前端的chains>有前端的Chains</a></li><li><a href=#案例调用工具>案例：调用工具</a></li><li><a href=#agent-based-chain>Agent based chain</a></li><li><a href=#案例agent-浏览器自动化爬虫>案例：Agent 浏览器自动化爬虫</a></li><li><a href=#案例接入mcp>案例：接入MCP</a></li><li><a href=#案例rag-with-langchain>案例：RAG with langchain</a></li><li><a href=#案例数据分析agent>案例：数据分析Agent</a></li></ul></li></ul></li><li><a href=#langgraphx20>Langgraph</a></li><li><a href=#langsmith>LangSmith</a></li><li><a href=#langflow>LangFlow</a></li></ul></li></ul></nav></div><script>window.addEventListener("DOMContentLoaded",()=>{enableStickyToc()})</script></div><div class="bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"><h3>See Also</h3><a href=https://yaoyuanArtemis.github.io/notes/llm/fine-tuning/ class=no-underline>LLM - 模型微调</a><br><a href=https://yaoyuanArtemis.github.io/notes/llm/overview/ class=no-underline>LLM-大模型</a><br></div></div><script>document.addEventListener("DOMContentLoaded",()=>{hljs.highlightAll()})</script></div></div></main><footer class=pl-scrollbar><div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b"><p class="text-sm text-tertiary-text">Powered by the <a href=https://github.com/wangchucheng/hugo-eureka class=hover:text-eureka>Eureka</a> theme for <a href=https://gohugo.io class=hover:text-eureka>Hugo</a></p></div></div></footer></body></html>
