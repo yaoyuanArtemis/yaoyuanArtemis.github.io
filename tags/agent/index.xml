@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>agent on Yaoyuan</title><link>https://yaoyuanArtemis.github.io/tags/agent/</link><description>Recent content in agent on Yaoyuan</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 04 Sep 2025 13:11:22 +0800</lastBuildDate><atom:link href="https://yaoyuanArtemis.github.io/tags/agent/index.xml" rel="self" type="application/rss+xml"/><item><title>LLM-Agent</title><link>https://yaoyuanArtemis.github.io/notes/llm/agent/</link><pubDate>Thu, 04 Sep 2025 13:11:22 +0800</pubDate><guid>https://yaoyuanArtemis.github.io/notes/llm/agent/</guid><description>手写版 目标 不依赖框架，实现 The augmented LLM(Chat + MCP + RAG)
+依赖框架：LangChain，LlamaIndex，AutoGen
+框架版 Langchain Langchian的架构可以分为3层，由底层到高层分别是：
+大模型接入API、工作流API、Agent API
+Langchain搭建过程 接入模型 下载Langchain pip3 install langchain 下载好之后验证langchain版本
+pip3 show langchain 注册DeepSeek的API-KEY
+创建好之后，在.env文件中注册这个DeepSeek的API key
+安装 python-dotenv 可以让项目能够读取dotenv文件中的项目变量
+验证能不能顺利读取API-KEY 使用OpenAI客户端对话验证DeepSeek
+# 初始化OpenAI客户端 client = OpenAI(api_key=DeepSeek_API_KEY,base_url=&amp;quot;https://api.deepseek.com&amp;quot;) # print(DeepSeek_API_KEY) # 调用DeepSeek API生成回答 response = client.chat.completions.create( model=&amp;quot;deepseek-chat&amp;quot;, messages=[ {&amp;quot;role&amp;quot;:&amp;quot;system&amp;quot;,&amp;quot;content&amp;quot;:&amp;quot;你是陕西西安人，以一个导游的身份介绍西安&amp;quot;}, {&amp;quot;role&amp;quot;:&amp;quot;user&amp;quot;,&amp;quot;content&amp;quot;:&amp;quot;你好，请介绍自己&amp;quot;}, ] ) print(response.choices[0].message.content) 安装langchain-deepseek
+创建模型对象
+# 创建一个模型对象 from langchain.chat_models import init_chat_model model = init_chat_model(model=&amp;quot;deepseek-chat&amp;quot;,model_provider=&amp;quot;deepseek&amp;quot;) Langchain验证模型调用
+接入Embedding模型
+接Embedding模型推荐使用阿里百炼平台
+搭建Chains base chain
+prompt_template = ChatPromptTemplate([(&amp;quot;system&amp;quot;,&amp;quot;你是一个乐于助人的助手&amp;quot;),(&amp;quot;user&amp;quot;,&amp;quot;这是用户的问题：{topic},请用yes或no来回答&amp;quot;)]) bool_qa_chain = prompt_template | model | BooleanOutputParser() question = &amp;quot;请问1+1是否大于2?</description></item></channel></rss>
