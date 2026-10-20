@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>RDMA on Yaoyuan</title><link>https://yaoyuanArtemis.github.io/tags/rdma/</link><description>Recent content in RDMA on Yaoyuan</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 20 Oct 2026 21:45:51 +0800</lastBuildDate><atom:link href="https://yaoyuanArtemis.github.io/tags/rdma/index.xml" rel="self" type="application/rss+xml"/><item><title>AIDC 网络笔记：传统流量、AI 流量与无损网络</title><link>https://yaoyuanArtemis.github.io/notes/aidc/ai-network/</link><pubDate>Tue, 20 Oct 2026 21:45:51 +0800</pubDate><guid>https://yaoyuanArtemis.github.io/notes/aidc/ai-network/</guid><description>传统流量 传统流量以**老鼠流（Mouse Flow）**为代表，主要是南北向流量。
+大量短小、突发的请求。 典型场景：Web 请求、数据库查询。 网络关注重点：低延迟响应。 丢几个包没关系，TCP 会重传。 AI 流量 AI 流量强调 Zero Loss（零丢包）。
+以**大象流（Elephant Flow）**为代表，主要是东西向流量。AllReduce 通信产生持续、巨量的流量，可以持续几十秒。
+因为 AI 数据流的成本，不能出事再修，而是需要提前防住。
+大象流的痛点：拥塞扩散 一条大象流占满链路，后面的流全部堵上。交换机缓存满了，就开始丢包。
+无损网络解决方案 PFC（优先级流控）+ ECN（显式拥塞通知）+ DCQCN 算法。
+目标是在不丢包的前提下控制速率。
+排查步骤 先看 MFU 算力利用率：MFU 一掉，网络肯定出问题了。 看 PFC 暂停帧有没有异常。 看 NCCL 日志有没有超时。 定位到具体哪条链路。 RDMA 原理与 RoCE v2 配置 待补充。
+RoCE v2 拥塞控制 ECN：预警 关注问题：ECN 阈值改成多少？
+发现拥塞之后，交换机给经过的 IP 报文打上标记。
+CNP：反馈 接收端 RNIC 根据带 CE 拥塞标记的报文，向发送端返回拥塞通知报文（CNP）。
+DCQCN：调速 关注问题：DCQCN 参数怎么调？
+发送端根据 CNP 拥塞通知降低发送速率，拥塞缓解后逐步恢复。
+PFC：止损 关注问题：PFC 怎么设计？
+接近危险水位 XOFF 时，向直连的上游设备发送 Pause 帧，暂停指定优先级的流量。仍在途的报文由 headroom 接收。</description></item></channel></rss>

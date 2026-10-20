@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Machine Learning on Yaoyuan</title><link>https://yaoyuanArtemis.github.io/categories/machine-learning/</link><description>Recent content in Machine Learning on Yaoyuan</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 04 Sep 2025 13:11:22 +0800</lastBuildDate><atom:link href="https://yaoyuanArtemis.github.io/categories/machine-learning/index.xml" rel="self" type="application/rss+xml"/><item><title>LLM-Agent</title><link>https://yaoyuanArtemis.github.io/notes/llm/agent/</link><pubDate>Thu, 04 Sep 2025 13:11:22 +0800</pubDate><guid>https://yaoyuanArtemis.github.io/notes/llm/agent/</guid><description>手写版 目标 不依赖框架，实现 The augmented LLM(Chat + MCP + RAG)
+依赖框架：LangChain，LlamaIndex，AutoGen
+框架版 Langchain Langchian的架构可以分为3层，由底层到高层分别是：
+大模型接入API、工作流API、Agent API
+Langchain搭建过程 接入模型 下载Langchain pip3 install langchain 下载好之后验证langchain版本
+pip3 show langchain 注册DeepSeek的API-KEY
+创建好之后，在.env文件中注册这个DeepSeek的API key
+安装 python-dotenv 可以让项目能够读取dotenv文件中的项目变量
+验证能不能顺利读取API-KEY 使用OpenAI客户端对话验证DeepSeek
+# 初始化OpenAI客户端 client = OpenAI(api_key=DeepSeek_API_KEY,base_url=&amp;quot;https://api.deepseek.com&amp;quot;) # print(DeepSeek_API_KEY) # 调用DeepSeek API生成回答 response = client.chat.completions.create( model=&amp;quot;deepseek-chat&amp;quot;, messages=[ {&amp;quot;role&amp;quot;:&amp;quot;system&amp;quot;,&amp;quot;content&amp;quot;:&amp;quot;你是陕西西安人，以一个导游的身份介绍西安&amp;quot;}, {&amp;quot;role&amp;quot;:&amp;quot;user&amp;quot;,&amp;quot;content&amp;quot;:&amp;quot;你好，请介绍自己&amp;quot;}, ] ) print(response.choices[0].message.content) 安装langchain-deepseek
+创建模型对象
+# 创建一个模型对象 from langchain.chat_models import init_chat_model model = init_chat_model(model=&amp;quot;deepseek-chat&amp;quot;,model_provider=&amp;quot;deepseek&amp;quot;) Langchain验证模型调用
+接入Embedding模型
+接Embedding模型推荐使用阿里百炼平台
+搭建Chains base chain
+prompt_template = ChatPromptTemplate([(&amp;quot;system&amp;quot;,&amp;quot;你是一个乐于助人的助手&amp;quot;),(&amp;quot;user&amp;quot;,&amp;quot;这是用户的问题：{topic},请用yes或no来回答&amp;quot;)]) bool_qa_chain = prompt_template | model | BooleanOutputParser() question = &amp;quot;请问1+1是否大于2?</description></item><item><title>LLM - 模型微调</title><link>https://yaoyuanArtemis.github.io/notes/llm/fine-tuning/</link><pubDate>Sun, 10 Aug 2025 13:13:14 +0800</pubDate><guid>https://yaoyuanArtemis.github.io/notes/llm/fine-tuning/</guid><description>种类 微调主要包括三种类型：
+SFT（有监督微调）
+Supervised Fine-Tuning
+通过人工标注的数据，进一步训练预训练模型，让模型能够胜任在特定领域
+除了有监督微调，还包括“无监督微调”，“自监督微调”
+微调算法分类：
+全参数微调：
+优点：可以获得最佳性能
+缺点：需要较大计算性能
+部分参数微调：
+优缺点：反之
+case:LoRA
+RLFH（强化学习）
+DPO（Direct Preference Optimization）通过人类主动选择，直接优化模型；调整幅度大
+PPO（Proximal Policy Optimization）通过点赞，点踩来渐进式调整模型，
+RAG（检索增强生成）
+将文本生成和外部信息检索结合，实时获取外部信息和最新信息 RAG和SFT的区别与联系：
+微调参数 框架：LLaMA Factory
+算法：Lora
+基座模型：Deepseek-R1-Distill-Qwen-1.5B
+web框架：FastAPI
+LoRA LLM - LoRA\QLoRA
+SFT整体步骤 租用云GPU SSH登陆 下载安装模型训练框架 git clone --depth 1 https://github.com/hiyouga/LLaMA-Factory.git 下载可能会被🧱
+git clone --depth 1 https://hub.gitmirror.com/https://github.com/hiyouga/LLaMA-Factory.git 创建conda环境 conda create -n llama-factory python=3.10 安装llamafactory并验证 llamafactory-cli version llama-cli可视化 llamafactory-cli web-ui hugging-face下载模型 // 存储模型文件夹 mkdir hugging-face // 修改hugging-face镜像源 export HF_ENDPOINT=https://hf-mirror.com // 修改模型下载位置 export HF_HOME=/root/autodl-tmp/hugging-face // 这是临时配置，如果要永久写入还得添加到~/.</description></item><item><title>LLM-大模型</title><link>https://yaoyuanArtemis.github.io/notes/llm/overview/</link><pubDate>Wed, 31 Mar 2021 13:11:22 +0800</pubDate><guid>https://yaoyuanArtemis.github.io/notes/llm/overview/</guid><description>LLM
+一言以蔽之，一个LLM模型就是一个概率数据库。它为任何给定字符的上下文字符分配一个概率分布
+LLM-原理😈 背景 在LLM出现之前，机器对神经网络的训练受限于相对较小的数据集，对上下文理解能力非常有限
+Google Brain团队在2017年发布了《Attetion is all your need》后引入了transformer架构，起初的目的是为了训练语言翻译模型。但是Open AI团队发现transformer是字符预测的关键解决方案
+模型架构 Embedding（嵌入向量）：将输入文字转化成数字｜文字向量化 Token Embedding Look-Up Table: 0 1 2 3 4 5 6 7 8 9 ... 54 55 56 57 58 59 60 61 62 63 0 0.625765 0.025510 0.954514 0.064349 -0.502401 -0.202555 -1.567081 -1.097956 0.235958 -0.239778 ... 0.420812 0.277596 0.778898 1.533269 1.609736 -0.403228 -0.274928 1.473840 0.068826 1.332708 1 -0.497006 0.465756 -0.257259 -1.067259 0.835319 -1.956048 -0.800265 -0.504499 -1.426664 0.905942 ... 0.008287 -0.252325 -0.</description></item></channel></rss>

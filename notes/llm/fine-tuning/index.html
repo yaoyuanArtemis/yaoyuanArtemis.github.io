@@ -1,0 +1,92 @@
+<!doctype html><html lang=en dir=ltr><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>LLM - 模型微调 | Yaoyuan</title><meta name=generator content="Hugo Eureka 0.9.3"><link rel=stylesheet href=https://yaoyuanArtemis.github.io/css/eureka.min.9cec6350e37e534b0338fa9a085bf06855de3b0f2dcf857e792e5e97b07ea905d4d5513db554cbc26a9c3da622bae92d.css><script defer src=https://yaoyuanArtemis.github.io/js/eureka.min.fa9a6bf6d7a50bb635b4cca7d2ba5cf3dfb095ae3798773f1328f7950028b48c17d06276594e1b5f244a25a6c969a705.js></script>
+<link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=preload href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap" as=style onload='this.onload=null,this.rel="stylesheet"'><link rel=stylesheet href=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/base16/solarized-light.min.css media=print onload='this.media="all",this.onload=null' crossorigin><script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js crossorigin></script>
+<link rel=stylesheet href=https://yaoyuanArtemis.github.io/css/highlightjs.min.2958991528e43eb6fc9b8c4f2b8e052f79c4010718e1d1e888a777620e9ee63021c2c57ec7417a3108019bb8c41943e6.css media=print onload='this.media="all",this.onload=null'><script defer type=text/javascript src=https://yaoyuanArtemis.github.io/js/fontawesome.min.43188b2fd13c27dbb34eb32b5138ddb548a5804f430376f50f0ee994d02357ea9c4f3f1380a0d928b702dc2004164443.js></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css integrity=sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ media=print onload='this.media="all",this.onload=null' crossorigin><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js integrity=sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY crossorigin></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin></script>
+<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})})</script><script defer src=https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js integrity=sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0 crossorigin></script>
+<link rel=icon type=image/png sizes=32x32 href=https://yaoyuanArtemis.github.io/images/myfavicon_hud6c546da6628cbefc26d0dcf6f7d248a_1476490_32x32_fill_box_center_3.png><link rel=apple-touch-icon sizes=180x180 href=https://yaoyuanArtemis.github.io/images/myfavicon_hud6c546da6628cbefc26d0dcf6f7d248a_1476490_180x180_fill_box_center_3.png><meta name=description content="LLM模型微调概述"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Notes","item":"https://yaoyuanArtemis.github.io/notes/"},{"@type":"ListItem","position":2,"name":"LLM Notes","item":"https://yaoyuanArtemis.github.io/notes/llm/"},{"@type":"ListItem","position":3,"name":"LLM - 模型微调","item":"https://yaoyuanArtemis.github.io/notes/llm/fine-tuning/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://yaoyuanArtemis.github.io/notes/llm/fine-tuning/"},"headline":"LLM - 模型微调 | Yaoyuan","datePublished":"2025-08-10T13:13:14+08:00","dateModified":"2025-08-10T13:13:14+08:00","wordCount":238,"author":{"@type":"Person","name":["example-author"]},"publisher":{"@type":"Person","name":"Yaoyuan","logo":{"@type":"ImageObject","url":"https://yaoyuanArtemis.github.io/images/myfavicon.png"}},"description":"LLM模型微调概述"}</script><meta property="og:title" content="LLM - 模型微调 | Yaoyuan"><meta property="og:type" content="article"><meta property="og:image" content="https://yaoyuanArtemis.github.io/images/myfavicon.png"><meta property="og:url" content="https://yaoyuanArtemis.github.io/notes/llm/fine-tuning/"><meta property="og:description" content="LLM模型微调概述"><meta property="og:locale" content="en"><meta property="og:site_name" content="Yaoyuan"><meta property="article:published_time" content="2025-08-10T13:13:14+08:00"><meta property="article:modified_time" content="2025-08-10T13:13:14+08:00"><meta property="article:section" content="notes"><meta property="article:tag" content="LLM"><meta property="article:tag" content="人工智能"><meta property="og:see_also" content="https://yaoyuanArtemis.github.io/notes/llm/overview/"><body class="flex min-h-screen flex-col"><header class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"><div class="mx-auto w-full max-w-screen-xl"><script>let storageColorScheme=localStorage.getItem("lightDarkMode");((storageColorScheme=="Auto"||storageColorScheme==null)&&window.matchMedia("(prefers-color-scheme: dark)").matches||storageColorScheme=="Dark")&&document.getElementsByTagName("html")[0].classList.add("dark")</script><nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0"><a href=/ class="me-6 text-primary-text text-xl font-bold">Yaoyuan</a>
+<button id=navbar-btn class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+<i class="fas fa-bars"></i></button><div id=target class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20"><div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0"><a href=/details/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent me-4">Details</a>
+<a href=/posts/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent me-4">Posts</a>
+<a href=/notes/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 selected-menu-item me-4">Notes</a>
+<a href=/projects/ class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2 border-transparent me-4">Projects</a></div><div class=flex><div class="relative pt-4 md:pt-0"><div class="cursor-pointer hover:text-eureka" id=lightDarkMode><i class="fas fa-adjust"></i></div><div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id=is-open></div><div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40" id=lightDarkOptions><span class="px-4 py-1 hover:text-eureka" name=Light>Light</span>
+<span class="px-4 py-1 hover:text-eureka" name=Dark>Dark</span>
+<span class="px-4 py-1 hover:text-eureka" name=Auto>Auto</span></div></div></div></div><div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id=is-open-mobile></div></nav><script>let element=document.getElementById("lightDarkMode");storageColorScheme==null||storageColorScheme=="Auto"?document.addEventListener("DOMContentLoaded",()=>{window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",switchDarkMode)}):storageColorScheme=="Light"?(element.firstElementChild.classList.remove("fa-adjust"),element.firstElementChild.setAttribute("data-icon","sun"),element.firstElementChild.classList.add("fa-sun")):storageColorScheme=="Dark"&&(element.firstElementChild.classList.remove("fa-adjust"),element.firstElementChild.setAttribute("data-icon","moon"),element.firstElementChild.classList.add("fa-moon")),document.addEventListener("DOMContentLoaded",()=>{getcolorscheme(),switchBurger()})</script></div></header><main class="grow pt-16"><div class=pl-scrollbar><div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8"><div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12"><div class="bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"><article class=prose><h1 class=mb-4>LLM - 模型微调</h1><div class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"><div class="me-6 my-2"><i class="fas fa-calendar me-1"></i>
+<span>2025-08-10</span></div><div class="me-6 my-2"><i class="fas fa-clock me-1"></i>
+<span>2 min read</span></div><div class="me-6 my-2"><i class="fas fa-folder me-1"></i>
+<a href=https://yaoyuanArtemis.github.io/categories/llm/ class=hover:text-eureka>LLM</a>
+<span>,</span>
+<a href=https://yaoyuanArtemis.github.io/categories/gpt/ class=hover:text-eureka>GPT</a>
+<span>,</span>
+<a href=https://yaoyuanArtemis.github.io/categories/machine-learning/ class=hover:text-eureka>Machine Learning</a></div></div><h2 id=种类>种类</h2><p>微调主要包括三种类型：</p><ul><li><p>SFT（有监督微调）</p><ul><li><p>Supervised Fine-Tuning</p></li><li><p>通过人工标注的数据，进一步训练<strong>预训练模型，</strong>让模型能够胜任在特定领域</p></li><li><p>除了有监督微调，还包括“无监督微调”，“自监督微调”</p></li><li><p>微调算法分类：</p><ul><li><p>全参数微调：</p><ul><li><p>优点：可以获得最佳性能</p></li><li><p>缺点：需要较大计算性能</p></li></ul></li><li><p>部分参数微调：</p><ul><li><p>优缺点：反之</p></li><li><p>case:LoRA</p></li></ul></li></ul></li></ul></li><li><p>RLFH（强化学习）</p><ul><li><p>DPO（Direct Preference Optimization）通过人类<strong>主动选择</strong>，直接优化模型；调整幅度大</p></li><li><p>PPO（Proximal Policy Optimization）通过<strong>点赞，点踩</strong>来渐进式调整模型，</p></li></ul></li><li><p>RAG（检索增强生成）</p><ul><li>将文本生成和外部信息检索结合，<strong><em>实时</em>获取外部信息和最新信息</strong></li></ul></li></ul><p>RAG和SFT的区别与联系：</p><h2 id=微调参数>微调参数</h2><ul><li><p>框架：<a href=https://llamafactory.readthedocs.io/zh-cn/latest/>LLaMA Factory</a></p></li><li><p>算法：Lora</p></li><li><p>基座模型：Deepseek-R1-Distill-Qwen-1.5B</p></li><li><p>web框架：FastAPI</p></li></ul><h2 id=lora>LoRA</h2><p><a href=https://pcnqdohorvbp.feishu.cn/wiki/D697w4hcqiC1GGkH3kkcebzdnOf>LLM - LoRA\QLoRA</a></p><h2 id=sft整体步骤>SFT整体步骤</h2><h3 id=租用云gpu>租用云GPU</h3><p><img src=images/image-11.png alt></p><h3 id=ssh登陆>SSH登陆</h3><p><img src=images/image-10.png alt=登陆成功会有提示></p><h3 id=下载安装模型训练框架>下载安装模型训练框架</h3><pre><code class=language-bash>git clone --depth 1 https://github.com/hiyouga/LLaMA-Factory.git
+</code></pre><p>下载可能会被🧱</p><pre><code class=language-bash>git clone --depth 1 https://hub.gitmirror.com/https://github.com/hiyouga/LLaMA-Factory.git
+</code></pre><h3 id=创建conda环境>创建conda环境</h3><pre><code class=language-bash>conda create -n llama-factory python=3.10
+</code></pre><h3 id=安装llamafactory并验证>安装llamafactory并验证</h3><pre><code class=language-bash>llamafactory-cli version
+</code></pre><h3 id=llama-cli可视化>llama-cli可视化</h3><pre><code class=language-bash>llamafactory-cli web-ui    
+</code></pre><p><img src=images/image.png alt></p><h3 id=hugging-face下载模型>hugging-face下载模型</h3><pre><code class=language-bash>// 存储模型文件夹
+mkdir hugging-face
+
+// 修改hugging-face镜像源
+export HF_ENDPOINT=https://hf-mirror.com
+
+// 修改模型下载位置
+export HF_HOME=/root/autodl-tmp/hugging-face
+
+// 这是临时配置，如果要永久写入还得添加到~/.bashrc ~/.zshrc
+
+echo $HF_HOME
+echo $HF_ENDPOITNT
+
+// 安装hugging-face下载工具
+pip install -U huggingface_hub
+</code></pre><h3 id=ui加载模型并验证>UI加载模型并验证</h3><p><img src=images/image-1.png alt></p><p><img src=images/image-2.png alt></p><h3 id=准备训练数据>准备训练数据</h3><ul><li>按照规定格式</li></ul><p>文件路径也在data目录下</p><p><img src=images/image-3.png alt></p><ul><li><p>dataset_info.json指出新增数据路径</p><pre><code class=language-bash>&quot;magic_conch&quot;: {
+&quot;file_name&quot;: &quot;magic_conch.json&quot;
+},
+</code></pre></li></ul><p><img src=images/image-4.png alt></p><h3 id=ui微调参数设置>UI微调参数设置</h3><p><img src=images/image-5.png alt></p><p>学习率：模型更新时权重改变幅度</p><p>学习率大 - 错过最优解</p><p>学习率小 - 学习很慢</p><p>训练论数：</p><p>小；欠拟合</p><p>大：过拟合</p><p>最大梯度限制：</p><p>梯度阈值</p><p>最大样本数：</p><p>训练数据中取样一部分</p><p>截断长度：</p><p>上下文长度</p><p>批处理大小</p><p>梯度累计</p><p>学习率调节器</p><p><img src=images/image-6.png alt></p><h3 id=导出模型>导出模型</h3><p>把与训练好的模型和初始模型合并并导出供使用</p><h3 id=模型部署和接口暴露>模型部署和接口暴露</h3><ol><li><p>创建新的环境来做模型部署</p><p>和上面的llamafactory环境隔离</p><pre><code class=language-bash>// 创建fastApi环境
+conda create -n fastApi python=3.10
+
+// 激活环境
+conda activate fstApi
+
+// 安装依赖
+conda install -c conda-forge fastapi uvicorn transformers pytorch
+pip install safetensors sentencepiece protobuf
+</code></pre></li><li><p>启动后端服务</p><pre><code class=language-bash>from fastapi import FastAPI
+from transformers import AutoModelForCausalLM, AutoTokenizer
+import torch
+
+app = FastAPI()
+
+# 模型路径
+model_path = &quot;/root/autodl-tmp/Models/deepseek-r1-1.5b-merged&quot;
+
+# 加载 tokenizer （分词器）
+tokenizer = AutoTokenizer.from_pretrained(model_path)
+
+# 加载模型并移动到可用设备（GPU/CPU）
+device = &quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;
+model = AutoModelForCausalLM.from_pretrained(model_path).to(device)
+
+@app.get(&quot;/generate&quot;)
+async def generate_text(prompt: str):
+    # 使用 tokenizer 编码输入的 prompt
+    inputs = tokenizer(prompt, return_tensors=&quot;pt&quot;).to(device)
+
+    # 使用模型生成文本
+    outputs = model.generate(inputs[&quot;input_ids&quot;], max_length=150)
+
+    # 解码生成的输出
+    generated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
+
+    return {&quot;generated_text&quot;: generated_text}
+</code></pre></li></ol><h2 id=rag部署>RAG部署</h2><p>RAG和模型微调都是为了解决大模型的<strong>幻觉</strong>问题</p><p>在生成回答之前会提前在外部知识库中检索</p><h3 id=本地部署全流程>本地部署全流程</h3><ol><li><p>下载ollama，通过ollama将DeepSeek模型下载到本地</p></li><li><p>下载RAGflow和Docker，通过Docker部署RAGflow</p></li><li><p>在RAGflow中部署个人知识库并实现基于个人知识库的回答</p></li></ol><h3 id=步骤>步骤</h3><ul><li>安装ollama以及对应基座模型</li></ul><p><img src=images/image-7.png alt></p><p>记得配置环境变量（略）</p><ul><li>下载RAGflow</li></ul><p>RAGflow会运行在Docker容器中中</p><pre><code class=language-bash>$ docker compose -f docker-compose.yml up -d
+</code></pre><p><img src=images/image-8.png alt></p><h3 id=访问ragflow>访问RAGflow</h3><p>通过localhost:80打开RAGflow前端页面</p><p><img src=images/image-9.png alt></p></article><div class=my-4><a href=https://yaoyuanArtemis.github.io/tags/llm/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#LLM</a>
+<a href=https://yaoyuanArtemis.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/ class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#人工智能</a></div><div class=py-2><div class="my-8 flex flex-col items-center md:flex-row"><a href=https://yaoyuanArtemis.github.io/authors/example-author/ class="md:me-4 text-primary-text h-24 w-24"><img src=https://raw.githubusercontent.com/yaoyuanArtemis/imgages/main/avatar.png class="bg-primary-bg w-full rounded-full" alt=Avatar></a><div class="mt-4 w-full md:mt-0 md:w-auto"><a href=https://yaoyuanArtemis.github.io/authors/example-author/ class="mb-2 block border-b pb-1 text-lg font-bold"><h3>Liu Feng</h3></a><span class="block pb-2">Aenean vel bibendum quam. Aliquam at mollis quam. Proin efficitur.</span>
+<a href=yaoyuan.lf@gmail.com class=me-2><i class="fas fa-envelope"></i></a>
+<a href="https://scholar.google.com/citations?user=0O_0fFAAAAAJ" class=me-2><i class="fab fa-google"></i></a>
+<a href=https://github.com/yaoyuanArtemis class=me-2><i class="fab fa-github"></i></a>
+<a href=public/images/resume.pdf class=me-2><i class="fas fa-file-pdf"></i></a></div></div></div><div class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"><div><span class="text-primary-text block font-bold">Previous</span>
+<a href=https://yaoyuanArtemis.github.io/notes/llm/agent/ class=block>LLM-Agent</a></div><div class="mt-4 md:mt-0 md:text-right"><span class="text-primary-text block font-bold">Next</span>
+<a href=https://yaoyuanArtemis.github.io/notes/llm/overview/ class=block>LLM-大模型</a></div></div></div><div class=col-span-2><div class="bg-primary-bg
+prose sticky top-16 z-10 hidden px-6 py-4 lg:block"><h3>On This Page</h3></div><div class="sticky-toc hidden px-6 pb-6 lg:block"><nav id=TableOfContents><ul><li><a href=#种类>种类</a></li><li><a href=#微调参数>微调参数</a></li><li><a href=#lora>LoRA</a></li><li><a href=#sft整体步骤>SFT整体步骤</a><ul><li><a href=#租用云gpu>租用云GPU</a></li><li><a href=#ssh登陆>SSH登陆</a></li><li><a href=#下载安装模型训练框架>下载安装模型训练框架</a></li><li><a href=#创建conda环境>创建conda环境</a></li><li><a href=#安装llamafactory并验证>安装llamafactory并验证</a></li><li><a href=#llama-cli可视化>llama-cli可视化</a></li><li><a href=#hugging-face下载模型>hugging-face下载模型</a></li><li><a href=#ui加载模型并验证>UI加载模型并验证</a></li><li><a href=#准备训练数据>准备训练数据</a></li><li><a href=#ui微调参数设置>UI微调参数设置</a></li><li><a href=#导出模型>导出模型</a></li><li><a href=#模型部署和接口暴露>模型部署和接口暴露</a></li></ul></li><li><a href=#rag部署>RAG部署</a><ul><li><a href=#本地部署全流程>本地部署全流程</a></li><li><a href=#步骤>步骤</a></li><li><a href=#访问ragflow>访问RAGflow</a></li></ul></li></ul></nav></div><script>window.addEventListener("DOMContentLoaded",()=>{enableStickyToc()})</script></div><div class="bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"><h3>See Also</h3><a href=https://yaoyuanArtemis.github.io/notes/llm/overview/ class=no-underline>LLM-大模型</a><br></div></div><script>document.addEventListener("DOMContentLoaded",()=>{hljs.highlightAll()})</script></div></div></main><footer class=pl-scrollbar><div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b"><p class="text-sm text-tertiary-text">Powered by the <a href=https://github.com/wangchucheng/hugo-eureka class=hover:text-eureka>Eureka</a> theme for <a href=https://gohugo.io class=hover:text-eureka>Hugo</a></p></div></div></footer></body></html>
